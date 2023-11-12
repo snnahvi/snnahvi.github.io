@@ -2,11 +2,11 @@
 	"name": "reactfolio",
 	"version": "1.1.0",
 	"homepage": "https://rezahe.github.io/rezahe.github.io",
-	"description": "Personal portfolio template built using Reactjs",
+	"description": "Personal page based on reactfolio",
 	"author": {
-		"name": "Tharindu N. Madhusanka",
-		"email": "mail@tharindu.dev",
-		"url": "https://tharindu.dev"
+		"name": "Mohammad Reza Heydari",
+		"email": "mrheydarigandi531306@gmail.com",
+		"url": "https://rezahe.github.io"
 	},
 	"license": "MIT",
 	"private": true,
