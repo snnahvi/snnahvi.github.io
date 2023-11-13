@@ -92,11 +92,15 @@ const Homepage = () => {
 						<div className="homepage-first-area">
 							<div className="homepage-first-area-left-side">
 								<div className="title homepage-title">
-									{INFO.homepage.title}
+									Hi!
 								</div>
 
 								<div className="subtitle homepage-subtitle">
-									{INFO.homepage.description}
+									I received my MSc and BSc degrees in Electrical Engineering from Sharif University.
+									My major field is Control Systems.
+									My interests involve developing both theoretical tools and real-world applications
+									to enhance our understanding of natural intelligence and open up opportunities to
+									integrate artificial intelligence into our daily lives.
 								</div>
 							</div>
 

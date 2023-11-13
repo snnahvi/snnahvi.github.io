@@ -1,6 +1,14 @@
 .logo {
 	border-radius: 50%;
 	display: block;
-	margin: 0;
+	margin: 10px;
 	padding: 0;
+	opacity: 1;
+	color: var(--primary-color);
+	font-size: 18px;
+	font-weight: 800;
+}
+
+.logo-link {
+	text-decoration: none;
 }
