@@ -1,40 +1,39 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 import "./styles/footer.css";
+import user from "../../data/user";
 
 const Footer = () => {
-	return (
-		<React.Fragment>
-			<div className="footer">
-				<div className="footer-links">
-					<ul className="footer-nav-link-list">
-						<li className="footer-nav-link-item">
-							<Link to="/">Home</Link>
-						</li>
-						<li className="footer-nav-link-item">
-							<Link to="/about">About</Link>
-						</li>
-						<li className="footer-nav-link-item">
-							<Link to="/projects">Projects</Link>
-						</li>
-						<li className="footer-nav-link-item">
-							<Link to="/articles">Articles</Link>
-						</li>
-						<li className="footer-nav-link-item">
-							<Link to="/contact">Contact</Link>
-						</li>
-					</ul>
-				</div>
+    return (
+        <React.Fragment>
+            <div className="footer">
+                <div className="footer-links">
+                    <ul className="footer-nav-link-list">
+                        <li className="footer-nav-link-item">
+                            <div className="subtitle-footer">About</div>
+                            Mohammad Reza Heydari
+                            <br/>
+                            Electrical Engineer
+                            <br/>
+                            Sharif University of Technology
+                        </li>
+                        <li className="footer-nav-link-item">
+                            <div className="subtitle-footer">Contact</div>
+                            {user.main.email}
+                        </li>
 
-				<div className="footer-credits">
-					<div className="footer-credits-text">
-						© 2023 Mohammad Reza Heydari
-					</div>
-				</div>
-			</div>
-		</React.Fragment>
-	);
+                    </ul>
+                </div>
+
+                <div className="footer-credits">
+                    <div className="footer-credits-text">
+                        © 2023 Mohammad Reza Heydari
+                    </div>
+                </div>
+            </div>
+        </React.Fragment>
+    );
 };
 
 export default Footer;
