@@ -97,13 +97,16 @@ const Homepage = () => {
 
                                 <div className="subtitle homepage-subtitle">
                                     I'm Mohammad Reza Heydari.
-                                    <br/><br/>
                                     I received my MSc and BSc degrees in Electrical Engineering from Sharif University.
                                     My major field is Control Systems.
                                     <br/><br/>
-                                    My interests involve developing both theoretical tools and real-world applications
-                                    to enhance our understanding of natural intelligence and open up opportunities to
-                                    integrate artificial intelligence into our daily lives.
+                                    Our brain is a complex system capable of doing many tasks compared to a computer.
+                                    I have delved into the neuroscience field to unravel its complexities.
+                                    My goal is to leverage this understanding to contribute to the development of
+                                    innovative
+                                    tools and robots capable of seamless interaction with our most intricate organ.
+                                    By merging knowledge of neuroscience with system analysis and data science tools,
+                                    I aim to bridge the gap between the mind and machines.
                                 </div>
                             </div>
 
@@ -179,6 +182,32 @@ const Homepage = () => {
                                             className="homepage-social-icon"
                                         />
                                     </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style={{width: "100%", height: "10px"}}/>
+
+                        <div className="homepage-first-area">
+                            <div className="homepage-first-area-left-side">
+                                <div className="title homepage-title">
+                                    Research Interests
+                                </div>
+
+                                <div className="subtitle homepage-subtitle">
+                                    My research interests lie in the span of these interdisciplinary areas:
+                                    <ul style={{width: "100%"}}>
+                                        <li>Neuroscience (learning, vision, sensorimotor)</li>
+                                        <li>Machine Learning (reinforcement learning, time-series, vision)</li>
+                                        <li>Brain Machine Interface</li>
+                                        <li>Signal Processing and Code Implementation</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div className="homepage-first-area-right-side">
+                                <div className="homepage-works">
+                                    <Works />
                                 </div>
                             </div>
                         </div>
