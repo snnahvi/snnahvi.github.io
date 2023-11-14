@@ -1,18 +1,19 @@
 import React from "react";
 
 function article_1() {
-	return {
-		date: "7 May 2023",
-		title: "The Benefits of Cloud Computing",
-		description:
-			"Cloud computing offers a range of benefits, including cost savings and increased flexibility. Find out why more businesses are turning to the cloud.",
-		keywords: [
-			"The Benefits of Cloud Computing",
-			"Tharindu",
-			"Tharindu N",
-			"Tharindu Nayanajith",
-		],
-		style: `
+    return {
+        date: "Apr 2017",
+        title: "OBTAIN: Real-Time Beat Tracking in Audio Signals",
+        description:
+            "A real-time beat tracking system utilizing OSS for onset detection, tempo estimation, and CBSS formation, achieving superior prediction accuracy in simulations compared to other methods, while maintaining computational complexity and performance.",
+        keywords: [
+            "Onset Strength Signal",
+            "Tempo estimation",
+            "Beat onset",
+            "Cumulative Beat Strength Signal",
+            "Peak detection",
+        ],
+        style: `
 				.article-content {
 					display: flex;
 					flex-direction: column;
@@ -24,42 +25,48 @@ function article_1() {
 					outline: 2px solid red;
 				}
 				`,
-		body: (
-			<React.Fragment>
-				<div className="article-content">
-					<div className="paragraph">Content of article 1</div>
-					<img
-						src="https://picsum.photos/200/300"
-						alt="random"
-						className="randImage"
-					/>
-				</div>
-			</React.Fragment>
-		),
-	};
+        link: "https://arxiv.org/abs/1704.02216",
+    };
 }
 
 function article_2() {
-	return {
-		date: "7 May 2023",
-		title: "Artificial Intelligence in Healthcare",
-		description:
-			"AI is transforming the healthcare industry, from improving patient outcomes to streamlining operations. Discover the latest applications of this game-changing technology.",
-		style: ``,
-		keywords: [
-			"Artificial Intelligence in Healthcare",
-			"Tharindu",
-			"Tharindu N",
-			"Tharindu Nayanajith",
-		],
-		body: (
-			<React.Fragment>
-				<h1>Content of article 2</h1>
-			</React.Fragment>
-		),
-	};
+    return {
+        date: "Nov 2021",
+        title: "Adversarial orthogonal regression: Two non-linear regressions for causal inference",
+        description:
+            "Two novel nonlinear regression techniques: AdOR for additive noise models and AdOSE for general structural equation models. These methods, operating as minimax two-player games, ensure regression residuals are independent of regressors without assuming noise distribution, providing effective solutions for various causality learning problems.",
+        keywords: [
+            "Orthogonal regression",
+            "Adversarial models",
+            "Additive noise model",
+            "Structural equation model",
+            "Mutual information",
+        ],
+        style: ``,
+        link: "https://www.sciencedirect.com/science/article/abs/pii/S0893608021002148",
+    };
 }
 
-const myArticles = [article_1, article_2];
+function article_3() {
+    return {
+        date: "Nov 2023",
+        title: "Prefrontal cortex signals value category while basal ganglia represent learned values in value learning",
+        description:
+            "Investigated the neural mechanisms underlying variable value learning in macaque monkeys associating novel objects with high or low rewards. Prefrontal cortex (PFC) rapidly differentiated objects by value, while substantia nigra reticulata (SNr) firing correlated with variability in learned values, suggesting SNr may contribute to the observed diversity in object values.",
+        keywords: [
+            "value learning",
+            "prefrontal cortex",
+            "substantia nigra reticulata",
+            "basal ganglia",
+            "reinforcement learning",
+            "electrophysiology",
+            "recurrent neural networks",
+        ],
+        style: ``,
+        link: "https://www.biorxiv.org/content/10.1101/2023.11.07.564561v1",
+    };
+}
+
+const myArticles = [article_3, article_2, article_1];
 
 export default myArticles;

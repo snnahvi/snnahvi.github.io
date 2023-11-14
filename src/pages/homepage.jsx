@@ -195,7 +195,7 @@ const Homepage = () => {
                                 </div>
 
                                 <div className="subtitle homepage-subtitle">
-                                    My research interests lie in the span of these interdisciplinary areas:
+                                    My research interests lie in the span of these areas:
                                     <ul style={{width: "100%"}}>
                                         <li>Neuroscience (learning, vision, sensorimotor)</li>
                                         <li>Machine Learning (reinforcement learning, time-series, vision)</li>
