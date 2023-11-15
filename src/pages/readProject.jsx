@@ -5,35 +5,30 @@ import styled from "styled-components";
 
 import NavBar from "../components/common/navBar";
 import Footer from "../components/common/footer";
-import Logo from "../components/common/logo";
 
 import INFO from "../data/user";
-import myArticles from "../data/articles";
+import PROJECTS from "../data/projects";
 
 import "./styles/readArticle.css";
 
-let ArticleStyle = styled.div``;
+let ProjectStyle = styled.div``;
 
-const ReadArticle = () => {
+const ReadProject = () => {
 	const navigate = useNavigate();
 	let { slug } = useParams();
 
-	const article = myArticles[slug - 1];
+	const project = PROJECTS.find((item) => item.link === slug);
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
-	}, [article]);
-
-	ArticleStyle = styled.div`
-		${article().style}
-	`;
+	}, [project]);
 
 	return (
 		<React.Fragment>
 			<Helmet>
-				<title>{`${article().title} | ${INFO.main.title}`}</title>
-				<meta name="description" content={article().description} />
-				<meta name="keywords" content={article().keywords.join(", ")} />
+				<title>{`${project.title} | ${INFO.main.title}`}</title>
+				<meta name="description" content={project.description} />
+				<meta name="keywords" content={project.keywords.join(", ")} />
 			</Helmet>
 
 			<div className="page-content">
@@ -41,9 +36,9 @@ const ReadArticle = () => {
 
 				<div className="content-wrapper">
 					<div className="read-article-logo-container">
-						<div className="read-article-logo">
-							<Logo width={46} />
-						</div>
+						{/*<div className="read-article-logo">*/}
+						{/*	<Logo width={46} />*/}
+						{/*</div>*/}
 					</div>
 
 					<div className="read-article-container">
@@ -59,16 +54,16 @@ const ReadArticle = () => {
 						<div className="read-article-wrapper">
 							<div className="read-article-date-container">
 								<div className="read-article-date">
-									{article().date}
+									{project.date}
 								</div>
 							</div>
 
 							<div className="title read-article-title">
-								{article().title}
+								{project.title}
 							</div>
 
 							<div className="read-article-body">
-								<ArticleStyle>{article().body}</ArticleStyle>
+								<ProjectStyle>{project.body}</ProjectStyle>
 							</div>
 						</div>
 					</div>
@@ -81,4 +76,4 @@ const ReadArticle = () => {
 	);
 };
 
-export default ReadArticle;
+export default ReadProject;

@@ -13,18 +13,6 @@ function article_1() {
             "Cumulative Beat Strength Signal",
             "Peak detection",
         ],
-        style: `
-				.article-content {
-					display: flex;
-					flex-direction: column;
-					align-items: center;
-				}
-
-				.randImage {
-					align-self: center;
-					outline: 2px solid red;
-				}
-				`,
         link: "https://arxiv.org/abs/1704.02216",
     };
 }
@@ -42,7 +30,6 @@ function article_2() {
             "Structural equation model",
             "Mutual information",
         ],
-        style: ``,
         link: "https://www.sciencedirect.com/science/article/abs/pii/S0893608021002148",
     };
 }
@@ -62,7 +49,6 @@ function article_3() {
             "electrophysiology",
             "recurrent neural networks",
         ],
-        style: ``,
         link: "https://www.biorxiv.org/content/10.1101/2023.11.07.564561v1",
     };
 }
