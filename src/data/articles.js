@@ -13,6 +13,7 @@ function article_1() {
             "Cumulative Beat Strength Signal",
             "Peak detection",
         ],
+        image: "publications_1.jpg",
         link: "https://arxiv.org/abs/1704.02216",
     };
 }
@@ -30,6 +31,7 @@ function article_2() {
             "Structural equation model",
             "Mutual information",
         ],
+        image: "publications_2.jpg",
         link: "https://www.sciencedirect.com/science/article/abs/pii/S0893608021002148",
     };
 }
@@ -49,6 +51,7 @@ function article_3() {
             "electrophysiology",
             "recurrent neural networks",
         ],
+        image: "publications_3.jpg",
         link: "https://www.biorxiv.org/content/10.1101/2023.11.07.564561v1",
     };
 }

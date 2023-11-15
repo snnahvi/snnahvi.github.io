@@ -69,6 +69,7 @@ const Articles = () => {
                                             title={article().title}
                                             description={article().description}
                                             link={article().link}
+                                            image={article().image}
                                         />
                                     </div>
                                 ))}

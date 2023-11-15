@@ -1,76 +1,56 @@
 const PROJECTS = [
     {
-        date: "Nov 2021",
+        date: "Jan 2021",
         title: "SpartanX",
         description:
-            "This is one of AI based algorithms I developed in our startup, Cardano Trader, that predicts the short future of the market ",
+            "A fully-automated AI-based system for trading in the stock market using a high frequency trading method",
         keywords: [
-            "Orthogonal regression",
-            "Adversarial models",
-            "Additive noise model",
-            "Structural equation model",
-            "Mutual information",
         ],
         body:
-            "Too",
-        logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
+            "Building ...",
+        logo: "projects_spartan_x_01.jpg",
         linkText: "View Project",
         link: "spartan-x",
     },
 
     {
-        date: "Nov 2021",
+        date: "Jun 2019",
         title: "Image2Latex",
         description:
-            "...",
-        logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/python/python.png",
+            "A DL project to extract LaTex formula code of a given mathematical image",
+        logo: "projects_image_2_latex_01.png",
         keywords: [
-            "Orthogonal regression",
-            "Adversarial models",
-            "Additive noise model",
-            "Structural equation model",
-            "Mutual information",
         ],
         body:
-            "Too",
+            "Building ...",
         linkText: "View Project",
         link: "image-2-latex",
     },
 
     {
-        date: "Nov 2021",
+        date: "Aug 2020",
         title: "EMG Sensors",
         description:
-            "...",
-        logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/html/html.png",
+            "Six simultaneous emg recording device using ad8221 and Python on RPi B4 linux system",
+        logo: "projects_emg_sensors_01.jpeg",
         keywords: [
-            "Orthogonal regression",
-            "Adversarial models",
-            "Additive noise model",
-            "Structural equation model",
-            "Mutual information",
         ],
         body:
-            "Too",
+            "Building ...",
         linkText: "View Project",
         link: "emg-sensors",
     },
 
     {
-        date: "Nov 2021",
+        date: "Feb 2021",
         title: "Population Analysis",
         description:
-            "...",
-        logo: "https://cdn.jsdelivr.net/npm/programming-languages-logos/src/javascript/javascript.png",
+            "Using LFADS to reveal the population coding of vlPFC and SNr regions of Macaque in a value learning task",
+        logo: "projects_population_analysis_01.jpg",
         keywords: [
-            "Orthogonal regression",
-            "Adversarial models",
-            "Additive noise model",
-            "Structural equation model",
-            "Mutual information",
         ],
         body:
-            "Too",
+            "Building ...",
         linkText: "View Project",
         link: "population-analysis",
     },

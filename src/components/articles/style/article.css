@@ -55,6 +55,22 @@
 	font-weight: 700;
 }
 
+.article-image-container {
+	width: 80%;
+	margin-left: -5px;
+	min-width: 100px;
+	margin-top: 5px;
+}
+
+.article-image-wrapper {
+	overflow: hidden;
+	border-radius: 10%;
+}
+
+.article-image-wrapper img {
+	width: 100%;
+}
+
 @media (max-width: 1024px) {
 	.article-left-side {
 		min-width: 10%;
@@ -65,5 +81,12 @@
 		flex-basis: 90%;
 		min-width: 85%;
 		max-width: 85%;
+		margin-left: 10px;
+	}
+
+	.article-image-container {
+		margin-left: -25px;
+		margin-right: 5px;
+		order: 1;
 	}
 }
