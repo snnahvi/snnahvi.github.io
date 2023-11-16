@@ -5,15 +5,19 @@ const ProjectBody01 = () => {
         <div>
             “Is it possible?” This was the first question each person asked me when I explained what we do in our
             startup. At times, I felt very hopeless about the results of our work. However, the main reason we continued
-            our struggle was the fact that big companies, like RenTech [insert link] hedge fund and BlackRock [insert
-            link] investment management, have utilized the same approaches for this end and are big successful examples.
+            our struggle was the fact that big companies, like <a target="_blank" href="https://www.rentec.com/Home.action?index=true">RenTech</a> hedge
+            fund and <a target="_blank" href="https://www.blackrock.com/corporate">BlackRock</a> investment
+            management, have utilized the same approaches for this end and are big successful examples.
                 <br/><br/>
             In Cardano Trader, we aimed to develop a fully automated system for managing assets in the Tehran Market
             based on AI, especially ML and DL methods. It consists of three main parts: data gathering, AI core, and
-            order maker (not to be confused with taker/maker concepts). The data gathering part was a scraper that
+            order maker (not to be confused with taker/maker concepts).
+            <br/><br/>
+            The data gathering part was a scraper that
             gathered all technical data mainly from two resources—the market's official page and the broker's page. This
             part is responsible for publishing data in memory, and because this procedure should be done with minimum
-            delay, the data was written directly to shared memory [insert link]. The AI core was the home for various
+            delay, the data was written directly to <a target="_blank" href="https://www.softprayog.in/programming/interprocess-communication-using-system-v-shared-memory-in-linux#:~:text=Shared%20memory%20is%20one%20of,the%20message%20queues%20and%20semaphores.">shared memory</a>.
+            The AI core was the home for various
             algorithms with different strategies that output, at each time frame, the selection of symbols (where we can
             invest our money in different symbols in the market) and the portion of the whole asset that should be
             spent. We established three giant algorithms for this part, and SpartanX, the fine-tuned version of Spartan,
@@ -90,7 +94,7 @@ const ProjectBody01 = () => {
             normalization methods, different time horizons from hours to weeks, and different selections of data related
             to different dates for the market.
                 <br/><br/>
-            What is the Meaning of Zero?
+            <div className="heading-1">What is the Meaning of Zero?</div>
                 <br/><br/>
             We reached two possible explanations for our results. First, it is a bad assumption to consider all market
             data together. Perhaps, symbols’ prices vary in different ways. Symbol X's price will rise if it is in one
@@ -142,13 +146,13 @@ const ProjectBody01 = () => {
             <div className="heading-1">Signal Generator</div>
                 <br/><br/>
             At the start of each day, the Signal Generator first extracts 5 features of the price fluctuations of each
-            symbol for the last 30 days. So, the feature of each symbol is a 5x30 matrix. Then, we used UMAP [insert
-            link] to reduce these 150 features to just 2 numbers. After that, we used HDBScan [insert link] to
+            symbol for the last 30 days. So, the feature of each symbol is a 5x30 matrix. Then, we used <a target="_blank" href="https://arxiv.org/abs/1802.03426">UMAP</a> to
+            reduce these 150 features to just 2 numbers. After that, we used <a target="_blank" href="https://link.springer.com/chapter/10.1007/978-3-642-37456-2_14">HDBScan</a> to
             differentiate all 750 symbols into 10 categories based on their reduced 2 features. This procedure is
             repeated each day. For each day, all symbols are categorized into 10 clusters. It is plausible that symbol X
             today is in cluster number 3, while 10 days ago, it belonged to another cluster, number 6. Then, as each
-            UMAP reduction and HDBScan clustering is different from the other days, we used a method named Procrustes
-            [insert link] to match these features for consecutive days. So, each category of 10 clusters has some number
+            UMAP reduction and HDBScan clustering is different from the other days, we used a method named <a target="_blank" href="https://en.wikipedia.org/wiki/Procrustes_transformation">Procrustes</a> to
+            match these features for consecutive days. So, each category of 10 clusters has some number
             of symbols each day.
                 <br/><br/>
             [insert image]
@@ -187,7 +191,7 @@ const ProjectBody01 = () => {
             By training our model this way, we can make sure that if the model accuracy is good, and we follow these
             predictions with the aforementioned trading strategy, we benefit from the market.
                 <br/><br/>
-            We used a Transformer [insert link] network for this end. The intuition behind that is that this network is
+            We used a <a target="_blank" href="https://arxiv.org/abs/1706.03762">Transformer</a> network for this end. The intuition behind that is that this network is
             based on the attention mechanism. Take RNN, for example, this network is not capable of inferring patterns
             that occur with different time scales. If the specific pattern of interest occurs far away from the current
             time, RNN cannot capture it. However, the Transformer makes use of MHA blocks that overcome this issue. For
