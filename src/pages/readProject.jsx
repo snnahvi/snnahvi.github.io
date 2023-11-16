@@ -8,6 +8,7 @@ import Footer from "../components/common/footer";
 
 import INFO from "../data/user";
 import PROJECTS from "../data/projects";
+import ProjectBodies from "../data/projectsBodies";
 
 import "./styles/readArticle.css";
 
@@ -18,6 +19,7 @@ const ReadProject = () => {
 	let { slug } = useParams();
 
 	const project = PROJECTS.find((item) => item.link === slug);
+
 
 	useEffect(() => {
 		window.scrollTo(0, 0);
@@ -63,7 +65,7 @@ const ReadProject = () => {
 							</div>
 
 							<div className="read-article-body">
-								<ProjectStyle>{project.body}</ProjectStyle>
+								<ProjectStyle>{ProjectBodies[project.order]()}</ProjectStyle>
 							</div>
 						</div>
 					</div>

@@ -71,4 +71,8 @@
 	.subtitle-footer {
 		width: 100%;
 	}
+
+	.footer-credits-text {
+		text-align: center;
+	}
 }

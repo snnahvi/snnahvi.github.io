@@ -30,7 +30,7 @@ const Article = (props) => {
                         <div className="article-title">{title}</div>
                         <div className="article-description">{description}</div>
                         <div className="article-link">
-                            Read Article{" "}
+                            Article Link{" "}
                             <FontAwesomeIcon
                                 style={{fontSize: "10px"}}
                                 icon={faChevronRight}

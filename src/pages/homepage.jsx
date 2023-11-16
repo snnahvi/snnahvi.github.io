@@ -44,22 +44,22 @@ const Homepage = () => {
                     <div className="homepage-container">
                         <div className="homepage-first-area">
                             <div className="homepage-first-area-left-side">
-                                <div className="title homepage-title">
+                                <div className="title homepage-title" style={{fontSize: "35px"}}>
                                     Hi!
                                 </div>
 
                                 <div className="subtitle homepage-subtitle">
                                     I'm Mohammad Reza Heydari.
                                     I received my MSc and BSc degrees in Electrical Engineering from Sharif University.
-                                    My major field is Control Systems.
+                                    My major field is <b>Control Systems</b>.
                                     <br/><br/>
                                     Our brain is a complex system capable of doing many tasks compared to a computer.
-                                    I have delved into the neuroscience field to unravel its complexities.
+                                    I have delved into the <b>neuroscience</b> field to unravel its complexities.
                                     My goal is to leverage this understanding to contribute to the development of
-                                    innovative
-                                    tools and robots capable of seamless interaction with our most intricate organ.
-                                    By merging knowledge of neuroscience with system analysis and data science tools,
-                                    I aim to bridge the gap between the mind and machines.
+                                    innovative <b>tools and robots</b> capable of seamless interaction with our most
+                                    intricate organ. By merging knowledge of neuroscience with <b>system
+                                    analysis</b> and <b>data science</b> tools, I aim to bridge the gap between the mind
+                                    and machines.
                                 </div>
                             </div>
 
@@ -160,7 +160,7 @@ const Homepage = () => {
 
                             <div className="homepage-first-area-right-side">
                                 <div className="homepage-works">
-                                    <Works />
+                                    <Works/>
                                 </div>
                             </div>
                         </div>

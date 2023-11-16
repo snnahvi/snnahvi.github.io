@@ -28,6 +28,10 @@ const Footer = () => {
                 <div className="footer-credits">
                     <div className="footer-credits-text">
                         © 2023 Mohammad Reza Heydari
+                        <br/>
+                        Designed and implemented by me
+                        <br/>
+                        using <a href="https://github.com/truethari/reactfolio" target="_blank">this wonderful template</a>
                     </div>
                 </div>
             </div>
