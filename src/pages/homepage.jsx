@@ -12,6 +12,9 @@ import INFO from "../data/user";
 import SEO from "../data/seo";
 
 import "./styles/homepage.css";
+import AllProjects from "../components/projects/allProjects";
+import myArticles from "../data/articles";
+import Article from "../components/articles/article";
 
 const Homepage = () => {
 
@@ -33,7 +36,7 @@ const Homepage = () => {
             </Helmet>
 
             <div className="page-content">
-                <NavBar active="home"/>
+                <NavBar active=""/>
                 <div className="content-wrapper">
                     <div className="homepage-logo-container">
                         {/*<div style={logoStyle}>*/}
@@ -41,7 +44,7 @@ const Homepage = () => {
                         {/*</div>*/}
                     </div>
 
-                    <div className="homepage-container">
+                    <div className="homepage-container" id="about">
                         <div className="homepage-first-area">
                             <div className="homepage-first-area-left-side">
                                 <div className="title homepage-title" style={{fontSize: "35px"}}>
@@ -143,7 +146,7 @@ const Homepage = () => {
 
                         <div className="homepage-first-area">
                             <div className="homepage-first-area-left-side">
-                                <div className="title homepage-title">
+                                <div className="title homepage-title" style={{paddingTop: "100px"}}>
                                     Research Interests
                                 </div>
 
@@ -161,6 +164,59 @@ const Homepage = () => {
                             <div className="homepage-first-area-right-side">
                                 <div className="homepage-works">
                                     <Works/>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div className="projects-container" id="projects">
+                            <div className="title homepage-title-others">
+                                Projects
+                            </div>
+                            <div className="projects-list">
+                                <AllProjects />
+                            </div>
+                        </div>
+
+
+
+                        <div className="articles-main-container" id="publications">
+                            <div className="title homepage-title-others">
+                                Publications
+                            </div>
+                            <div className="subtitle articles-subtitle">
+                                <a
+                                    href="https://scholar.google.com/citations?user=aozCgSkAAAAJ&hl=en"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
+                                    <FontAwesomeIcon
+                                        icon={faGraduationCap}
+                                        className="homepage-social-icon"
+                                    />
+                                    Google Scholar
+                                </a>
+                            </div>
+
+                            <div className="articles-container">
+                                <div className="articles-wrapper">
+                                    {myArticles.map((article, index) => (
+                                        <div
+                                            className="articles-article"
+                                            key={(index + 1).toString()}
+                                        >
+                                            <Article
+                                                key={(index + 1).toString()}
+                                                date={article().date}
+                                                title={article().title}
+                                                description={article().description}
+                                                link={article().link}
+                                                image={article().image}
+                                            />
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
                         </div>

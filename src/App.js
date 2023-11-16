@@ -22,8 +22,6 @@ function App() {
 		<div className="App">
 			<Routes>
 				<Route path="/" element={<Homepage />} />
-				<Route path="/projects" element={<Projects />} />
-				<Route path="/publications" element={<Articles />} />
 				<Route path="/project/:slug" element={<ReadProject />} />
 				<Route path="*" element={<Notfound />} />
 			</Routes>
