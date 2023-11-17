@@ -6,21 +6,21 @@ import {useNavigate, useParams} from "react-router-dom";
 const ProjectBody01 = () => {
     return (
         <div>
-                <em style={{fontSize: "15px"}}>Last updated: 17 Nov, 2023</em>
-                <div style={{margin: "0 auto", textAlign: "center", padding: "20px"}}>
-                        <figure>
-                                <Zoom>
-                                        <img
-                                            alt="SpartanX Logo"
-                                            src="../projects_spartan_x_01.jpg"
-                                            width="200"
-                                        />
-                                </Zoom>
-                                <figcaption style={{fontSize: "15px", paddingLeft: "40px", paddingRight: "40px"}}><em>
-                                        SpartanX
-                                </em></figcaption>
-                        </figure>
-                </div>
+            <em style={{fontSize: "15px"}}>Last updated: 17 Nov, 2023</em>
+            <div style={{margin: "0 auto", textAlign: "center", padding: "20px"}}>
+                <figure>
+                    <Zoom>
+                        <img
+                            alt="SpartanX Logo"
+                            src="../projects_spartan_x_01.jpg"
+                            width="200"
+                        />
+                    </Zoom>
+                    <figcaption style={{fontSize: "15px", paddingLeft: "20px", paddingRight: "20px"}}><em>
+                        SpartanX
+                    </em></figcaption>
+                </figure>
+            </div>
             “Is it possible?” This was the first question every person asked me when I explained what we do in our
             startup. At times, I felt hopeless about the results of our work. However, the primary reason we persevered
             in our struggle was the realization that major companies, such as <a target="_blank" rel="noreferrer"
@@ -75,233 +75,277 @@ const ProjectBody01 = () => {
             Additionally, each day, each symbol must fluctuate within a pre-determined range based on yesterday's
             closing price. This range varies for different symbols. Moreover, trading for each symbol must halt due to
             regulatory requirements, leading to the blocking of all assets. Designing a system must take these scenarios
-            into consideration
+            into consideration.
             <br/><br/>
-                <div style={{margin: "0 auto", textAlign: "center", padding: "20px"}}>
-                        <figure>
-                                <Zoom>
-                                        <img
-                                            alt="SpartanX Logo"
-                                            src="../projects_spartan_x_02.jpg"
-                                            width="100%"
-                                        />
-                                </Zoom>
-                                <figcaption style={{fontSize: "15px", paddingLeft: "40px", paddingRight: "40px"}}><em>
-                                        SpartanX
-                                </em></figcaption>
-                        </figure>
-                </div>
+            <div style={{margin: "0 auto", textAlign: "center", padding: "20px"}}>
+                <figure>
+                    <Zoom>
+                        <img
+                            alt="SpartanX Logo"
+                            src="../projects_spartan_x_02.jpg"
+                            width="100%"
+                        />
+                    </Zoom>
+                    <figcaption style={{fontSize: "15px", paddingLeft: "20px", paddingRight: "20px"}}><em>
+                        The price of the symbol DELOR in Rials (the currency of Iran) is depicted from mid-April to
+                        mid-October 2020. The price is represented by dots for different days, with colors indicating
+                        positive/negative trends—red, white, or green. White rectangles indicate the price limits for
+                        each day. The red and grey vertical areas represent days when the symbol's trade is restricted.
+                    </em></figcaption>
+                </figure>
+            </div>
             <br/><br/>
             <div className="heading-1">Start: Prediction of the Future of Each Symbol</div>
             <br/><br/>
-            The first idea is predicting the future price of each symbol; and then, selecting the best symbols based on
-            both the future of each symbol and the confidence of this prediction. If we estimate that symbol X’s price
-            will raise 5% in 7 days with a confidence of 70%, and symbol Y’s price will raise 3.5% in 7 days with a
-            confidence of 80%, we can divide our assets based on our risk threshold into two symbols. There is another
-            possibility: keep some part of our asset for a plausible future opportunity. This decision is complicated,
-            and we will discuss it later.
+            The initial idea involves predicting the future price of each symbol and subsequently selecting the best
+            symbols based on both their anticipated future and the confidence level of these predictions. For instance,
+            if we estimate that symbol X's price will increase by 5% in 7 days with a confidence level of 70%, and
+            symbol Y's price will rise by 3.5% in 7 days with a confidence level of 80%, we can allocate our assets
+            among these two symbols according to our risk threshold. Another consideration is reserving a portion of our
+            assets for potential future opportunities, a decision that is intricate and will be discussed later.
             <br/><br/>
-            At the start of our startup, we trained various regression models and networks to somehow predict the future
-            price of each symbol. We faced many challenges in doing so:
+            At the start of our startup, we trained various regression models and networks to predict the future price
+            of each symbol. However, we encountered several challenges:
+            <br/>
+            <ul>
+                <li>
+                    Determining the prediction horizon: How many future points should be considered—next minute, next
+                    hour, next day, next week, or next month?
+                </li>
+                <li>
+                    Measuring prediction confidence: How can we quantify the confidence of our predictions?
+                </li>
+                <li>
+                    Feature selection: What data should be included as features? Should additional economic measures
+                    like MACD, EMA, and RSI be used?
+                </li>
+                <li>
+                    Model training: Should a single model be trained for all symbols, or is it more effective to use
+                    separate models for different symbols?
+                </li>
+                <li>
+                    Non-stationary price history: The price history is non-stationary and varies over time and among
+                    symbols. How can we address this variability?
+                </li>
+            </ul>
+            <br/>
+            Initially, we aggregated all symbols throughout their entire history to create a comprehensive dataset.
+            Various features, such as MACD, were computed for each price and incorporated into our dataset. To address
+            the non-stationary problem, we implemented a moving window of a specified size and utilized the min-max
+            normalization method to maintain the price range within a specific interval. As for the model's response, we
+            calculated the relative price change, representing the change in future price relative to the current price.
             <br/><br/>
-            How many points of future points should be used for the prediction horizon? In other words, which one is our
-            goal of prediction? The next minute, next hour, next day, next week, or next month?
-
-            How can we measure the confidence of our prediction?
-
-            What data should be included as features? Should we use other economic measures, like MACD, EMA, and RSI as
-            features?
-
-            Should a model be trained for all symbols or a separate model for different symbols?
-
-            The price history is non-stationary. It varies by time and by symbols. How can we overcome this?
+            Despite the involvement of all symbols and a dataset size of approximately 200,000 samples, the abundance of
+            features posed the curse of dimensionality problem for the model. To address this, we initially employed a
+            Random Forest model to identify the most informative features, ultimately narrowing them down to about 20
+            key features.
             <br/><br/>
-            Initially, we aggregated all symbols in all history together to make a big dataset. We calculated different
-            features like MACD for each price and included them in our dataset. For the non-stationary problem, we
-            considered a moving window of a certain size and used the min-max normalization method to keep the price
-            range in a certain range. For the response of the model, we computed the relative price change: the change
-            of the future price with respect to the current price.
-            <br/><br/>
-            Although all symbols are involved, and the size of the dataset was about 200,000 samples, there were
-            enormous features, and the model faced the curse of dimensionality problem. So, we first used a Random
-            Forest model to find the most informative features. After that, we obtained about 20 features.
-            <br/><br/>
-            Over more than two months, we trained different models to predict the future price. And the result was
-            frustrating: zero. Almost in all cases, the prediction of future price was zero. It means that all models
-            say that the price won’t change given the current features. We changed the model and the data, but the model
-            remained with zero predictions: we used RNN, LSTM, GRU, 1-dim CNN, Gaussian Process regression, and even
-            Transformer. Also, we included different selections of economic measures as features, different
-            normalization methods, different time horizons from hours to weeks, and different selections of data related
-            to different dates for the market.
+            Over more than two months, we trained various models to predict future prices, but the results were
+            consistently discouraging: almost always yielding predictions of zero. Regardless of changing both the model
+            architecture and the dataset, the predictions remained stuck at zero. We explored a range of models,
+            including RNN, LSTM, GRU, 1-dimensional CNN, Gaussian Process regression, and even Transformer.
+            Additionally, we experimented with different selections of economic measures as features, various
+            normalization methods, diverse time horizons from hours to weeks, and varied selections of data related to
+            different dates in the market.
             <br/><br/>
             <div className="heading-1">What is the Meaning of Zero?</div>
             <br/><br/>
-            We reached two possible explanations for our results. First, it is a bad assumption to consider all market
-            data together. Perhaps, symbols’ prices vary in different ways. Symbol X's price will rise if it is in one
-            particular condition, while the X price will drop if it is in the same condition. And more complicated, this
-            rule for a single symbol varies in time. The same condition responsible for the rise in the price of symbol
-            Z two years ago cannot change the price this year because the overall market is in a harsh condition.
+            We arrived at two possible explanations for our results. First, it might be a flawed assumption to aggregate
+            all market data together. It's plausible that symbols' prices vary in distinct ways. For instance, Symbol
+            X's price could rise under one specific condition, while under the same condition, the price of Y might
+            drop. Moreover, this rule for a single symbol can change over time. The same condition that contributed to
+            the rise in the price of Symbol Z two years ago may not have the same effect this year due to the overall
+            market being in a harsh condition.
             <br/><br/>
-            Second, the cause of price change in the time frame we examined is not included in our features. For
-            example, if we want to predict the symbol Z price in the next month, we cannot estimate that based on daily
-            trade value, the current price, RSI, and so on. Instead, the most responsible cause is included in the net
-            sales of the company. This type of data, the fundamental data, is not included in our dataset, and we don’t
-            have access to that.
+            Secondly, we considered that the cause of price change within the time frame we examined might not be
+            adequately represented in our features. For instance, if we aim to predict the price of Symbol Z in the next
+            month, relying on daily trade value, current price, RSI, and similar features might be insufficient.
+            Instead, the most significant determinant could be found in the net sales of the company. Unfortunately,
+            thess types of fundamental data are not present in our dataset, and we do not have access to them.
             <br/><br/>
             <div className="heading-1">SpartanX</div>
             <br/><br/>
-            So, we wanted to change our viewpoint and apply three major changes. The first change is the time-dependent
-            clustering of symbols. The assumption we made was that each symbol price dynamic varies smoothly in time
-            (time refers to the day here). On a given day, all 750 symbols are categorized into 10 different clusters
-            based on some features extracted based on the fluctuation of the price.
+            So, we decided to shift our perspective and implemented three major changes. The first change involved
+            time-dependent clustering of symbols. Our assumption was that the price dynamics of each symbol vary
+            smoothly over time (with time referring to the day in this context). On any given day, all 750 symbols are
+            grouped into 10 different clusters based on certain features extracted from their price fluctuations.
             <br/><br/>
-            The second change is we attempted to view the problem as a classification problem instead of a regression
-            one. In fact, it is almost impossible to exactly predict the future price. If you ask an expert about a
-            symbol, it usually says with examples, “It goes up” or “It will drop.” Nobody is interested in finding out
-            the exact price.
+            The second change involved approaching the problem as a classification problem rather than a regression one.
+            In fact, accurately predicting the exact future price is challenging. When consulting an expert about
+            a symbol, they often provide general directional insights, such as "It will go up" or "It will drop." In
+            practice, the focus is more on understanding the overall trend rather than pinpointing the exact price.
             <br/><br/>
-            Indeed, we labeled our data at each point as either a positive or negative sample. The meaning of this label
-            is that if you buy the share at that time point, you can benefit from that. But there is a problem: At which
-            point sell that share? How much benefit do you want to make and sell your share? Do you want to hold the
-            share if the price drops, perhaps for a return? If so, at which threshold? So, the good/bad labels are very
-            dependent on the trading strategy.
+            Indeed, we labeled our data at each point as either a positive or negative sample. The label signifies that
+            buying
+            the share at that time point could result in a benefit. However, a challenge arises: At which point sell
+            that share? How much benefit do you want to make and sell your share? Do you want to hold the share if the
+            price drops, perhaps for a return? The classification of good/bad labels is highly dependent on the chosen
+            trading strategy.
             <br/><br/>
-            The third change is that we lower the prediction horizon to one hour. We examined this precisely, and I say
-            it with confidence: there is no information in technical data of the market if you want to predict the
-            long-term future of a symbol; for example, a month later. The market is under the control of big players,
-            and they are humans who make their decisions based on several factors some of which cannot be predicted. But
-            in a short time period, the price has a dynamic, as we discovered.
+            The third change involved reducing the prediction horizon to one hour. After thorough examination, I can
+            confidently state that there is no substantial information in the technical data of the market for
+            predicting the long-term future of a symbol, such as a month later. The market, being influenced by
+            significant players, involves human decision-making based on several unpredictable factors. However, in a
+            short time period, we observed that the price exhibits a discernible dynamic.
             <br/><br/>
-            This is a trade-off between the profit and the prediction ability: you should lower the horizon of the
-            future to be able to predict the price, but the profit in the short term is usually too small. Here the idea
-            of High-Frequency Trading comes. In this method, we make small but abundant, trades and the overall
-            summation of these trades equals to a great profit.
+            This entails a trade-off between profit and prediction ability. Lowering the future horizon allows for
+            better price prediction, but short-term profits are typically modest. This is where the concept of
+            High-Frequency Trading comes into play. In this method, numerous small trades are executed, and the
+            cumulative result of these trades amounts to a significant profit.
             <br/><br/>
-            Therefore, SpartanX is divided into two interconnected sub-systems: the first one is the Signal Generator
-            which generates, at every 2.5 seconds, a vector of probabilities with the size of all symbols that each
-            entry represents the goodness of buying that symbol at that time (and not the future price value). The
-            second one is the Stream Manager which is responsible for managing the whole asset and using them to invest
-            in different symbols.
+            Hence, SpartanX is divided into two interconnected sub-systems: the Signal Generator and the Stream Manager.
+            The Signal Generator generates, every 2.5 seconds, a vector of probabilities for all symbols. Each entry in
+            the vector represents the goodness of buying that symbol at that specific time (not predicting the future
+            price
+            value). The Stream Manager is responsible for managing the entire asset and utilizing it to invest in
+            various symbols.
             <br/><br/>
             <div className="heading-1">Signal Generator</div>
             <br/><br/>
-            At the start of each day, the Signal Generator first extracts 5 features of the price fluctuations of each
-            symbol for the last 30 days. So, the feature of each symbol is a 5x30 matrix. Then, we used <a
-            target="_blank" rel="noreferrer" href="https://arxiv.org/abs/1802.03426">UMAP</a> to
-            reduce these 150 features to just 2 numbers. After that, we used <a target="_blank" rel="noreferrer"
+            At the beginning of each day, the Signal Generator extracts 5 features representing the price fluctuations
+            of each symbol over the last 30 days. This results in a 5x30 matrix for each symbol. Then, we
+            utilized <a target="_blank" rel="noreferrer" href="https://arxiv.org/abs/1802.03426">UMAP</a> to
+            reduce these 150 features to 2 dimensions. Subsequently, we used <a target="_blank" rel="noreferrer"
                                                                                 href="https://link.springer.com/chapter/10.1007/978-3-642-37456-2_14">HDBScan</a> to
-            differentiate all 750 symbols into 10 categories based on their reduced 2 features. This procedure is
-            repeated each day. For each day, all symbols are categorized into 10 clusters. It is plausible that symbol X
-            today is in cluster number 3, while 10 days ago, it belonged to another cluster, number 6. Then, as each
-            UMAP reduction and HDBScan clustering is different from the other days, we used a method named <a
-            target="_blank" rel="noreferrer"
-            href="https://en.wikipedia.org/wiki/Procrustes_transformation">Procrustes</a> to
-            match these features for consecutive days. So, each category of 10 clusters has some number
-            of symbols each day.
+            categorize all 750 symbols into 10 clusters based on their reduced 2 features. This process is repeated
+            daily, assigning each symbol to one of the 10 clusters. It is worth noting that a symbol may be in a
+            different cluster today than it was 20 days ago. To account for variations in UMAP reduction and HDBScan
+            clustering, we employed <a target="_blank" rel="noreferrer"
+                                       href="https://en.wikipedia.org/wiki/Procrustes_transformation">Procrustes</a> to
+            align these features for consecutive days.
             <br/><br/>
             [insert image]
             <br/><br/>
-            We were fascinated by these 10 clusters because the categorized symbols are too sensible. For example, the
-            symbol Khodro was the closest symbol to Vsapa for most of the days, and these companies are so related to
-            each other because they are both giant automobile manufacturers. We didn’t feed this knowledge to our model,
-            but based on the price variability, they are recovered as the closest symbols.
+            We found the 10 clusters to be intriguing as they exhibited a high sensitivity to related symbols. For
+            instance, the symbol Khodro consistently appeared as the closest symbol to Vsapa on most days. This
+            alignment is meaningful as both companies are prominent automobile manufacturers and share significant
+            similarities. It's noteworthy that we didn't explicitly feed this knowledge to our model; rather, it emerged
+            based on price variability, effectively identifying and recovering related symbols.
             <br/><br/>
-            Looking at the price of sample symbols of various clusters reveals a striking pattern for us. In short, what
-            we discovered by this approach is that we were able to separate each symbol by its liquidity. If a symbol is
-            less liquid, the price jumps. On the other hand, if a symbol is more liquid, it is hard to cause a big
-            change in the price because the price is supported by high volumes of buy and sell orders. This separation
-            opens up other opportunities for us: we now know that trading in different symbols requires different
-            strategies based on the liquidity of that symbol.
+            Examining the price of sample symbols across various clusters revealed a compelling pattern. In essence, our
+            approach enabled us to segregate symbols based on their liquidity. Less liquid symbols exhibited more
+            significant price jumps, while more liquid symbols proved resistant to large price changes due to the
+            substantial support from high volumes of buy and sell orders. This separation not only provided valuable
+            insights into market dynamics but also paved the way for tailored trading strategies, recognizing that
+            trading in different symbols necessitates distinct approaches contingent on the liquidity of each symbol.
             <br/><br/>
             [insert image]
             <br/><br/>
-            Then, we trained different models for these clusters because the price dynamic is vaguely different from
-            each other. The output of the model, as discussed earlier, is the goodness of buy. This means that if the
-            probability is high, you make a bigger profit if you buy shares of that symbol at that time. For labeling
-            data, we should first decide our trading strategy. This is so complicated, but at this time just consider
-            this simple approach: we buy a share at time t with price p. If one of these criteria reaches, we sell that
-            share:
-            <br/><br/>
-            If the current price falls less than 2% of the maximum price in the time window from time t to now
+            Then, we trained different models for these clusters, recognizing that the price dynamics differ
+            among them. The model's output, as discussed earlier, signifies the desirability of buying. A higher
+            probability suggests a potentially larger profit when buying shares of that symbol at that time. For
+            labeling data, we established a simple trading strategy: we buy a share at time 't' with price 'p.' If any
+            of the following criteria are met, we sell that share:
+            <br/>
+            <ol>
+                <li>
+                    If the current price falls by less than 2% of the maximum price in the time window from time 't' to
+                    the present.
+                </li>
+                <li>
+                    If the price falls by less than 1% of 'p.'
+                </li>
+                <li>
+                    If the current time surpasses 1 hour from time 't.'
+                </li>
+            </ol>
 
-            If the price falls less than 1% of p
-
-            If the current time passes 1 hour from time t.
+            <br/>
+            We iterated through all time points (sampled with a 2.5-second period) in the dataset for each day and apply
+            these criteria. If the sell price is higher than the buy price plus the exchange fee, that time point is
+            labeled as 'good.' Conversely, the remaining points are labeled as 'bad.'
             <br/><br/>
-            In the dataset, we can traverse over all time points (sampled with a 2.5-second period) for each day and
-            apply this criterion. Then, if the sell price is higher than the buy price plus the exchange fee, that time
-            point is labeled as good. Vice versa, the remaining points are labeled as bad.
+            By training our model in this manner, we ensured that if the model accuracy is high, and we follow these
+            predictions along with the aforementioned trading strategy, we can benefit from the market.
             <br/><br/>
-            By training our model this way, we can make sure that if the model accuracy is good, and we follow these
-            predictions with the aforementioned trading strategy, we benefit from the market.
-            <br/><br/>
-            We used a <a target="_blank" rel="noreferrer"
-                         href="https://arxiv.org/abs/1706.03762">Transformer</a> network for this end. The intuition
-            behind that is that this network is
-            based on the attention mechanism. Take RNN, for example, this network is not capable of inferring patterns
-            that occur with different time scales. If the specific pattern of interest occurs far away from the current
-            time, RNN cannot capture it. However, the Transformer makes use of MHA blocks that overcome this issue. For
-            our problem, we changed some parts of the Transformer architecture. For instance, embedding was removed, and
-            positional encoding was changed.
+            We utilized a <a target="_blank" rel="noreferrer"
+                             href="https://arxiv.org/abs/1706.03762">Transformer</a> network
+            for this purpose due to its foundation on the attention mechanism. Unlike
+            RNN, which struggles with inferring patterns occurring at different time scales, the Transformer, leveraging
+            Multi-Head Attention blocks, effectively addresses this limitation. To tailor the Transformer for our
+            problem, we made specific adjustments to the architecture, such as removing embedding and modifying
+            positional encoding.
             <br/><br/>
             [insert image]
             <br/><br/>
             <div className="heading-1">Stream Manager</div>
             <br/><br/>
-            Consider an imaginary scenario: we have access to a perfect model that predicts with high confidence, let's
-            say 90%, the future of each symbol. So, in this scenario, what is the best approach for investment? One may
-            answer that we should buy the share of a symbol with all of our assets the first time. But it is 10%
-            possible that it is a bad decision and causes the loss. It is possible that you stay for a better
-            opportunity to buy another symbol and make a great benefit. Furthermore, it is more complicated: if we have
-            a share of symbol X and it is now in loss, should we sell the shares to free up some assets to buy the share
-            of another symbol with a higher probability?
+            In an imaginary scenario where we have access to a perfect model that predicts the future of each symbol
+            with high confidence, say 90%, determining the best approach for investment becomes nuanced. While one might
+            suggest investing all assets in the share of a symbol the first time, there is a 10% chance it could be a
+            bad
+            decision leading to losses. Alternatively, waiting for a better opportunity to buy another symbol and
+            potentially gain greater benefits is also a consideration. Adding to the complexity, if we already hold
+            shares of symbol X and it is currently in a loss, the decision of whether to sell those shares to free up
+            assets for a symbol with a higher probability introduces another layer of complexity to the investment
+            strategy.
             <br/><br/>
-            In my opinion and based on my experience, selecting these strategies is more important than predicting the
-            future of the price. This part is related to topics of economics such as risk management and asset
-            management.
+            In my opinion and based on my experience, the selection of these strategies holds more significance than
+            predicting the future price. This aspect is closely tied to economic topics such as risk management and
+            asset management.
             <br/><br/>
-            We considered a simple useful strategy for that. Initially, our whole asset, let's say 1, is divided into a
-            certain number of parts (we called it a stream), let's say N. In each trade, we just use one of these
-            streams to buy and sell the shares. At each time point, the machine checks all of these streams. If one of
-            them is free, the Stream Manager asks the Signal Generator about good symbols to buy. If the probability of
-            a symbol is higher than a threshold and that symbol was not bought before, the stream will be assigned to
-            that symbol. The Stream Manager checks all acquired streams at each time and, as before, if one of these
-            criteria reaches, the share of that symbol will be sold:
-            <br/><br/>
-            If the current price falls less than 2% of the maximum price in the time window from time t to now
+            We devised a simple yet effective strategy for this. Initially, our entire asset, let's say 1, is divided
+            into a specified number of parts, denoted as 'streams,' let's say N. In each trade, we utilize one of these
+            streams to buy and sell shares. At each time point, the system examines all available streams. If one of
+            them is available, the Stream Manager consults the Signal Generator for promising symbols to buy. If the
+            probability of a symbol exceeds a threshold and that symbol has not been purchased before, the stream is
+            allocated to that symbol. The Stream Manager continuously monitors all active streams, and, as previously
+            outlined, if any of these criteria are met, the shares of that symbol are sold:
+            <br/>
+            <ol>
+                <li>
+                    If the current price falls by less than 2% of the maximum price in the time window from time 't' to
+                    the present.
+                </li>
+                <li>
+                    If the price falls by less than 1% of 'p.'
+                </li>
+                <li>
+                    If the current time surpasses 1 hour from time 't.'
+                </li>
+            </ol>
 
-            If the price falls less than 1% of p
-
-            If the current time passes 1 hour from time t.
-            <br/><br/>
-            The parameters of this method play a crucial role in the overall benefit. For instance, if the number N is
-            increased, the profit will decrease, as the total profit is divided by N; at the same time, the risk will
-            decline. Therefore, finding the best set of parameters is too effective and is a challenging problem. We
-            found the best set by grid searching in all possible combinations for 3 weeks on 5 powerful machines with a
-            Core i9 CPU. The following image shows the result of changing each parameter on the overall profit.
+            <br/>
+            The parameters of this method play a crucial role in determining the overall benefit. For example, if the
+            number N is increased, the profit will decrease since the total profit is divided by N; simultaneously, the
+            risk will decline. Therefore, finding the optimal set of parameters is highly impactful and poses a
+            challenging problem. We identified the best set through grid searching across all possible combinations over
+            a 3-week period, using five powerful machines with a Core i9 CPU. The following image illustrates the
+            impact of changing some of these parameters on the overall profit.
             <br/><br/>
             [insert image]
             <br/><br/>
-            Recall the labeling mechanism in the Signal Generator part. It is worthwhile to mention that labels are
-            dependent on this parameter set. Also, the best parameter set and the profit depend on the output of the
-            Signal Generator. Yet, we should fine-tune these two sub-systems together. But it is not a trivial question,
-            and we just fine-tuned Transformer models after finding the best set.
+            Recall the labeling mechanism in the Signal Generator part. It is important to note that labels are
+            dependent
+            on this parameter set. The best parameter set and the profit are also influenced by the output of the Signal
+            Generator. Yet, we should fine-tune these two sub-systems together. Fine-tuning these two sub-systems
+            together is a non-trivial task, and currently, we fine-tune Transformer models after identifying the best
+            set.
             <br/><br/>
             <div className="heading-1">Results and Discussion</div>
             <br/><br/>
-            The whole structure was tested several times. In one test that lasted for about one and a half months with
-            an initial asset of $100,000, we gained 15%. In one day, two streams were bought and sold in a symbol just
-            in 6 seconds. However, as we found later, this profit is highly due to the circumstances of the market.
-            High-frequency trading requires high liquidity as the orders should be done very quickly. In addition, this
-            strategy works well in neutral markets, neither in a bullish nor a bearish trend.
+            The entire structure underwent multiple tests. In a test spanning approximately one and a half months with
+            an initial asset of $100,000, we achieved a 15% gain. Notably, in one day, two streams were bought and sold
+            in a symbol within just 6 seconds. However, upon further analysis, we discovered that this profit is heavily
+            influenced by market circumstances. High-frequency trading necessitates high liquidity as orders must be
+            executed swiftly. Additionally, this strategy performs well in neutral markets, exhibiting effectiveness
+            neither in a bullish nor a bearish trend.
             <br/><br/>
-            This strategy faced two practical issues in real tests causing a diminish in the real test performance.
-            First, in many cases, the buy orders did not complete, that was due to the liquidity. Second, as explained
-            earlier, the rule of the Tehran exchange market says that the price should be in a specific range. Because
-            of this rule, when the price is in a downward trend, all shareholders want to sell their shares, and no one
-            is willing to buy that share. This causes a saturation in the price with a lower bound. This causes some of
-            the streams blocked for several days and cannot be used in other symbols to gain a profit. This highly
-            affected the performance of our algorithm.
+            This strategy encountered two practical issues during real tests, resulting in a decline in overall
+            performance. Firstly, buy orders often failed to complete, primarily due to liquidity issues. Secondly, as
+            mentioned earlier, the Tehran exchange market's rule stipulates a specific price range. Consequently, during
+            a downward trend, shareholders seek to sell their shares, leading to a lack of buyers and causing a price
+            saturation with a lower bound. This, in turn, results in some streams being blocked for several days,
+            preventing their use in other symbols for profit generation. These challenges significantly impacted the
+            algorithm's performance.
+            <br/><br/>
+            As suggested earlier, the most crucial factor in this type of work is not finding the best machine to
+            predict the future price; rather, it is more important to implement strategies and methods for
+            decision-making based on the current situation. Reinforcement learning may offer a promising avenue. By
+            defining agents capable of taking actions like creating and canceling orders, and modeling rewards as the
+            profit from trading within a specific time period based on probabilities generated by the Signal Generator,
+            a more adaptive approach could be achieved. Although we attempted to pursue this direction, time constraints
+            hindered us from completing the task, ultimately leading to the collapse of our startup.
         </div>
     );
 };
