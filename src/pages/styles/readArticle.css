@@ -66,3 +66,8 @@
 	font-family: system-ui;
 	color: #52525b;
 }
+@media (max-width: 1024px) {
+	.read-article-back {
+		padding-right: 10px;
+	}
+}
