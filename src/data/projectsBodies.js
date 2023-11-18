@@ -1,7 +1,6 @@
 import "./projectBodies.css";
 import Zoom from 'react-medium-image-zoom'
 import 'react-medium-image-zoom/dist/styles.css'
-import {useNavigate, useParams} from "react-router-dom";
 
 const ProjectBody01 = () => {
     return (
@@ -21,6 +20,7 @@ const ProjectBody01 = () => {
                     </em></figcaption>
                 </figure>
             </div>
+
             “Is it possible?” This was the first question every person asked me when I explained what we do in our
             startup. At times, I felt hopeless about the results of our work. However, the primary reason we persevered
             in our struggle was the realization that major companies, such as <a target="_blank" rel="noreferrer"
@@ -151,7 +151,7 @@ const ProjectBody01 = () => {
             <div className="heading-1">What is the Meaning of Zero?</div>
             <br/><br/>
             We arrived at two possible explanations for our results. First, it might be a flawed assumption to aggregate
-            all market data together. It's plausible that symbols' prices vary in distinct ways. For instance, Symbol
+            all market data together. It is plausible that symbols' prices vary in distinct ways. For instance, Symbol
             X's price could rise under one specific condition, while under the same condition, the price of Y might
             drop. Moreover, this rule for a single symbol can change over time. The same condition that contributed to
             the rise in the price of Symbol Z two years ago may not have the same effect this year due to the overall
@@ -214,12 +214,25 @@ const ProjectBody01 = () => {
                                        href="https://en.wikipedia.org/wiki/Procrustes_transformation">Procrustes</a> to
             align these features for consecutive days.
             <br/><br/>
-            [insert image]
+            <div style={{margin: "0 auto", textAlign: "center", padding: "20px"}}>
+                <figure>
+                    <Zoom>
+                        <img
+                            alt="Symbols Clustered"
+                            src="../projects_spartan_x_03.gif"
+                            width="100%"
+                        />
+                    </Zoom>
+                    <figcaption style={{fontSize: "15px", paddingLeft: "20px", paddingRight: "20px"}}><em>
+                        Symbols clustered
+                    </em></figcaption>
+                </figure>
+            </div>
             <br/><br/>
             We found the 10 clusters to be intriguing as they exhibited a high sensitivity to related symbols. For
             instance, the symbol Khodro consistently appeared as the closest symbol to Vsapa on most days. This
             alignment is meaningful as both companies are prominent automobile manufacturers and share significant
-            similarities. It's noteworthy that we didn't explicitly feed this knowledge to our model; rather, it emerged
+            similarities. It is noteworthy that we didn't explicitly feed this knowledge to our model; rather, it emerged
             based on price variability, effectively identifying and recovering related symbols.
             <br/><br/>
             Examining the price of sample symbols across various clusters revealed a compelling pattern. In essence, our
