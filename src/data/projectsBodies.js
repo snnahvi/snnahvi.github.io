@@ -6,7 +6,7 @@ const ProjectBody01 = () => {
     return (
         <div>
             <em style={{fontSize: "15px"}}>Last updated: 17 Nov, 2023</em>
-            <div style={{margin: "0 auto", textAlign: "center", padding: "20px"}}>
+            <div style={{margin: "0 auto", textAlign: "center"}}>
                 <figure>
                     <Zoom>
                         <img
@@ -15,7 +15,7 @@ const ProjectBody01 = () => {
                             width="200"
                         />
                     </Zoom>
-                    <figcaption style={{fontSize: "15px", paddingLeft: "20px", paddingRight: "20px"}}><em>
+                    <figcaption style={{fontSize: "15px"}}><em>
                         SpartanX
                     </em></figcaption>
                 </figure>
@@ -77,7 +77,7 @@ const ProjectBody01 = () => {
             regulatory requirements, leading to the blocking of all assets. Designing a system must take these scenarios
             into consideration.
             <br/><br/>
-            <div style={{margin: "0 auto", textAlign: "center", padding: "20px"}}>
+            <div style={{margin: "0 auto", textAlign: "center"}}>
                 <figure>
                     <Zoom>
                         <img
@@ -86,7 +86,7 @@ const ProjectBody01 = () => {
                             width="100%"
                         />
                     </Zoom>
-                    <figcaption style={{fontSize: "15px", paddingLeft: "20px", paddingRight: "20px"}}><em>
+                    <figcaption style={{fontSize: "15px"}}><em>
                         The price of the symbol DELOR in Rials (the currency of Iran) is depicted from mid-April to
                         mid-October 2020. The price is represented by dots for different days, with colors indicating
                         positive/negative trends—red, white, or green. White rectangles indicate the price limits for
@@ -214,7 +214,7 @@ const ProjectBody01 = () => {
                                        href="https://en.wikipedia.org/wiki/Procrustes_transformation">Procrustes</a> to
             align these features for consecutive days.
             <br/><br/>
-            <div style={{margin: "0 auto", textAlign: "center", padding: "20px"}}>
+            <div style={{margin: "0 auto", textAlign: "center"}}>
                 <figure>
                     <Zoom>
                         <img
@@ -223,8 +223,10 @@ const ProjectBody01 = () => {
                             width="100%"
                         />
                     </Zoom>
-                    <figcaption style={{fontSize: "15px", paddingLeft: "20px", paddingRight: "20px"}}><em>
-                        Symbols clustered
+                    <figcaption style={{fontSize: "15px"}}><em>
+                        Symbols are clustered, with each dot representing the reduced features of each symbol in 2
+                        dimensions. Distinct colors correspond to each of the 10 clusters. The transition of clusters is
+                        depicted in each frame of the animation, with dates annotated beneath the figure.
                     </em></figcaption>
                 </figure>
             </div>
@@ -232,7 +234,8 @@ const ProjectBody01 = () => {
             We found the 10 clusters to be intriguing as they exhibited a high sensitivity to related symbols. For
             instance, the symbol Khodro consistently appeared as the closest symbol to Vsapa on most days. This
             alignment is meaningful as both companies are prominent automobile manufacturers and share significant
-            similarities. It is noteworthy that we didn't explicitly feed this knowledge to our model; rather, it emerged
+            similarities. It is noteworthy that we didn't explicitly feed this knowledge to our model; rather, it
+            emerged
             based on price variability, effectively identifying and recovering related symbols.
             <br/><br/>
             Examining the price of sample symbols across various clusters revealed a compelling pattern. In essence, our
@@ -242,7 +245,21 @@ const ProjectBody01 = () => {
             insights into market dynamics but also paved the way for tailored trading strategies, recognizing that
             trading in different symbols necessitates distinct approaches contingent on the liquidity of each symbol.
             <br/><br/>
-            [insert image]
+            <div style={{margin: "0 auto", textAlign: "center"}}>
+                <figure>
+                    <Zoom>
+                        <img
+                            alt="Sample Price Clustered"
+                            src="../projects_spartan_x_04.jpg"
+                            width="100%"
+                        />
+                    </Zoom>
+                    <figcaption style={{fontSize: "15px"}}><em>
+                        Sample price changes for each cluster in a single day are illustrated, with the y-axis
+                        representing the percentage change in price.
+                    </em></figcaption>
+                </figure>
+            </div>
             <br/><br/>
             Then, we trained different models for these clusters, recognizing that the price dynamics differ
             among them. The model's output, as discussed earlier, signifies the desirability of buying. A higher
@@ -279,7 +296,22 @@ const ProjectBody01 = () => {
             problem, we made specific adjustments to the architecture, such as removing embedding and modifying
             positional encoding.
             <br/><br/>
-            [insert image]
+            <div style={{margin: "0 auto", textAlign: "center"}}>
+                <figure>
+                    <Zoom>
+                        <img
+                            alt="Transformer Response"
+                            src="../projects_spartan_x_05.jpg"
+                            width="100%"
+                        />
+                    </Zoom>
+                    <figcaption style={{fontSize: "15px"}}><em>
+                        Sample predictions of the Transformer are depicted. The start of each red line signifies points
+                        where the model predicted them as good places to invest (buy), while the end of the red line
+                        indicates sell points according to the trade strategy.
+                    </em></figcaption>
+                </figure>
+            </div>
             <br/><br/>
             <div className="heading-1">Stream Manager</div>
             <br/><br/>
@@ -326,7 +358,22 @@ const ProjectBody01 = () => {
             a 3-week period, using five powerful machines with a Core i9 CPU. The following image illustrates the
             impact of changing some of these parameters on the overall profit.
             <br/><br/>
-            [insert image]
+            <div style={{margin: "0 auto", textAlign: "center"}}>
+                <figure>
+                    <Zoom>
+                        <img
+                            alt="Trading Parameters"
+                            src="../projects_spartan_x_06.jpg"
+                            width="100%"
+                        />
+                    </Zoom>
+                    <figcaption style={{fontSize: "15px"}}><em>
+                        The impact of varying distinct parameters of the trade strategy on daily profit is illustrated.
+                        It is important to note that the profit can also be negative, emphasizing the potential
+                        results of an incorrect choice of parameters, despite the Signal Generator perform well.
+                    </em></figcaption>
+                </figure>
+            </div>
             <br/><br/>
             Recall the labeling mechanism in the Signal Generator part. It is important to note that labels are
             dependent
