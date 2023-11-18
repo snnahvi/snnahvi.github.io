@@ -410,5 +410,23 @@ const ProjectBody01 = () => {
     );
 };
 
-const ProjectBodies = [ProjectBody01, ProjectBody01, ProjectBody01];
+
+const ProjectBody02 = () => {
+    return (
+        <div>
+            BUILDING ...
+        </div>
+    );
+};
+
+
+const ProjectBody03 = () => {
+    return (
+        <div>
+            BUILDING ...
+        </div>
+    );
+};
+
+const ProjectBodies = [ProjectBody01, ProjectBody02, ProjectBody03];
 export default ProjectBodies;
