@@ -19,7 +19,7 @@ const PROJECTS = [
         title: "Image2Latex",
         description:
             "A DL project to extract LaTex formula code of a given mathematical image",
-        logo: "projects_image_2_latex_01.png",
+        logo: "projects_image_to_latex_01.png",
         keywords: [],
         body:
             "Building ...",

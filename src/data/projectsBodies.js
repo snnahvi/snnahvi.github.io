@@ -414,7 +414,287 @@ const ProjectBody01 = () => {
 const ProjectBody02 = () => {
     return (
         <div>
-            BUILDING ...
+            <em style={{fontSize: "15px"}}>Last updated: 19 Nov, 2023</em>
+            <div style={{margin: "0 auto", textAlign: "center"}}>
+                <figure>
+                    <Zoom>
+                        <img
+                            alt="Image2Latex Logo"
+                            src="../projects_image_to_latex_01.png"
+                            width="100%"
+                        />
+                    </Zoom>
+                    <figcaption style={{fontSize: "15px"}}><em>
+                        Conversion of math image to LaTex code
+                    </em></figcaption>
+                </figure>
+            </div>
+
+            One of the most challenging aspects of writing an academic paper with LaTeX is inserting mathematical
+            equations and formulas. One approach is to write the formula on a piece of paper, take a picture of it, and
+            then use Optical Character Recognition (OCR) engines to convert it into a typed equation. While there are
+            already OCR engines that can convert handwritten text into typed text, there are few examples that
+            specialize in handling mathematical images.
+            <br/><br/>
+            In this article, I am going to explain how I utilized deep neural networks to convert a computer-generated
+            image of a mathematical formula into LaTeX code. It is worth noting that handling handwritten images
+            presents more challenges. I employed innovative methods for this task as part of my deep learning course
+            project.
+            <br/><br/>
+            The main concept is attention. When writing a formula, the process involves reading from left to right,
+            writing each token while maintaining focus on that token and its position within the entire formula. This
+            approach is akin to the process of generating a caption for a figure. In a <a target="_blank"
+                                                                                          rel="noreferrer"
+                                                                                          href="https://arxiv.org/abs/1502.03044">specific
+            method</a>, a
+            CNN network extracts the feature map of an image, followed by the use
+            of a language model with an attention mechanism. This model sequentially generates each token while
+            selectively focusing on different locations within the feature map of the image.
+            <br/><br/>
+            <div style={{margin: "0 auto", textAlign: "center"}}>
+                <figure>
+                    <Zoom>
+                        <img
+                            alt="Show, Attend and Tell"
+                            src="../projects_image_to_latex_02.png"
+                            width="100%"
+                        />
+                    </Zoom>
+                    <figcaption style={{fontSize: "15px"}}><em>
+                        Show, Attend and Tell from https://zhuanlan.zhihu.com/p/32333802
+                    </em></figcaption>
+                </figure>
+            </div>
+            <br/><br/>
+            In this approach, the provided image undergoes initial processing through a CNN network, extracting the
+            image's feature map. This map serves as the foundation for the initial state of the RNN. At each state, the
+            RNN generates the predicted output vocabulary and produces a map of the same size as the feature map. This
+            map functions as the attention mechanism. The map is multiplied by the extracted feature map, and the result
+            becomes the input for the subsequent RNN step. Consequently, in generating each vocabulary element, both the
+            previous vocabulary and the attention result are fed into the RNN. The expectation is that, for each
+            vocabulary element, the feature map adjusts the pixels corresponding to the relevant part of the image,
+            effectively filtering out irrelevant areas.
+            <br/><br/>
+            While the idea is promising, there is speculation regarding the actual functioning of attention as
+            anticipated. The absence of a guarantee that the attention map consistently selects the relevant part of the
+            image for generating each output vocabulary raises concerns. Additionally, the entire structure is trained
+            solely based on the loss computed at the output, without assurance that every aspect of the structure is
+            effectively trained, especially considering the issue of gradient vanishing in RNNs. In response to these
+            concerns, I have modified the aforementioned structure with the following suggestions:
+            <br/>
+            <ul>
+                <li>
+                    Utilize Inception modules as CNN blocks due to their capability to handle different sizes of various
+                    tokens in the input image.
+                </li>
+                <li>
+                    Pre-train the Inception modules in another task with specific labeling. Enforce the Inception
+                    network to initially identify the bounding box of the entire given image, ensuring that the
+                    attention mechanism aligns with expectations.
+                </li>
+                <li>
+                    Apply a Transformer network with skip-gram embedding and the bounding box output of the Inception
+                    network to translate math tokens (markups) into math characters using an attention mechanism.
+                </li>
+            </ul>
+            <br/>
+            <div className="heading-1">Data Exploration</div>
+            <br/><br/>
+            The dataset, consisting of nearly 140k samples of math images paired with LaTeX code, can be accessed
+            through <a target="_blank" rel="noreferrer" href="https://untrix.github.io/i2l/140k_download.html">this
+            link</a>.
+            The LaTeX code corpus comprises around 550 unique vocabularies,
+            such as &#123;, Q, ^, \mu, and \frac. While the vocabulary size may not be extensive,
+            the challenge is more complex than initially anticipated. Some vocabularies are combined to form
+            intricate markups, such as \begin&#123;array&#125;, \begin&#123;matrix&#125;,
+            and \begin&#123;tabular&#125;.
+            Additionally, certain vocabularies lack a corresponding markup as output, including \ref and \label.
+            Some are positioned above, below, or in proximity to the next vocabulary,
+            such as \sqrt, \widehat, \widetild, \matrix, \over, \fbox, \underline,
+            and \choose.
+            Lastly, there are symbols that influence the appearance of the succeeding vocabulary output, such
+            as \mathrm, \mathsf, \mathcal, \mbox, \rm, \scriptscriptstyle, \sf, \textbf,
+            and \textit.
+            <br/><br/>
+            <div className="heading-1">Unique Markups</div>
+            <br/><br/>
+            By examining each combination of distinct markups, particularly those mentioned in the previous section, I
+            identified 2608 unique visual markups. To achieve this, I initially extracted all 550 unique vocabularies
+            from the training labels. Subsequently, I checked each vocabulary in various examples to pinpoint those
+            causing the above difficulties. Finally, I created a simple .tex file template and used a for loop to
+            automatically compile the .tex document, saving the output images in a directory. The following image
+            displays some samples.
+            <br/><br/>
+            <div style={{margin: "0 auto", textAlign: "center"}}>
+                <figure>
+                    <Zoom>
+                        <img
+                            alt="Example unique markups"
+                            src="../projects_image_to_latex_03.jpg"
+                            width="100%"
+                        />
+                    </Zoom>
+                    <figcaption style={{fontSize: "15px"}}><em>
+                        Example unique markups
+                    </em></figcaption>
+                </figure>
+            </div>
+            <br/><br/>
+            <div className="heading-1">Finding Bounding Boxes</div>
+            <br/><br/>
+            After identifying all unique markups, I proceeded to determine the location of each markup and annotated it
+            with a rectangular bounding box. This step is crucial for defining attention blocks. Indeed, what I did here
+            is extracting a guide for the attention mechanism. I will delve into this in more detail later; for now,
+            let's focus on the task of locating bounding boxes for all markups.
+            <br/><br/>
+            Traditional image processing methods, particularly the template matching approach, prove to be a valuable
+            tool for this purpose. I utilized a well-known technique called template matching, which involves locating a
+            specific pattern within a given image. In our case, the objective is to identify unique markups in the input
+            image. The process entails sliding the unique markup across the image, calculating the correlation between
+            the markup and each location it passes through, resulting in a correlation matrix. The peak index in this
+            matrix corresponds to the location where the markup most closely resembles the pattern at that point. To
+            enhance this process, I employed a more sophisticated method known as TM_SQDIFF_NORMED, which normalizes
+            these correlations.
+            <br/><br/>
+            However, there are two challenges with this method. First, the size of the specific markup in the image may
+            deviate from the original markup. Second, executing this method for all 2608 unique markups proves to be
+            highly time-consuming. Fortunately, solutions exist to address these issues.
+            <br/><br/>
+            To address the issue of varying sizes, we can employ template matching with different sizes of the markup.
+            Estimating the range of sizes involves comparing the size of the image with that of the markup.
+            For the second problem, using the label of the image in the dataset (the LaTeX code) proves to be a useful
+            strategy. Extracting the used markups and their frequency of occurrence can be easily achieved by reading
+            the LaTeX code. It is important to be caution with specific vocabularies such as \mathcal and \textbf that
+            generate combined markups.
+            <br/><br/>
+            <div style={{margin: "0 auto", textAlign: "center"}}>
+                <figure>
+                    <Zoom>
+                        <img
+                            alt="bounding boxes"
+                            src="../projects_image_to_latex_04.jpg"
+                            width="100%"
+                        />
+                    </Zoom>
+                    <figcaption style={{fontSize: "15px"}}><em>
+                        Sample identified bounding boxes in the images
+                    </em></figcaption>
+                </figure>
+            </div>
+            <br/><br/>
+            <div className="heading-1">Assigning a Vector for Each Markup</div>
+            <br/><br/>
+            The objective in this section is to assign a compact vector to each of the 2608 unique markups. These
+            vectors will be utilized in the subsequent pre-training of the CNN network.
+            <br/><br/>
+            The basic idea involves using dimensionality reduction tools, such as PCA, to condense the pixel space to a
+            few numbers. However, it is crucial to note that the distribution of pixels within the markups does not
+            adhere to a normal distribution. In reality, markups are grouped together, with some highly correlated
+            within their respective group but distant from other correlated groups. Consequently, PCA is not the most
+            suitable approach for this purpose.
+            <br/><br/>
+            For this purpose, I employed a novel approach. Initially, I utilized KMeans to segregate highly correlated
+            images into different clusters. Subsequently, I applied PCA independently in each cluster. The final vector
+            for each markup is generated by concatenating two vectors. The first component is the center of the
+            corresponding cluster, reduced to 5 dimensions by applying PCA to all central points. The second component
+            is the 11-dimensional vector obtained by applying PCA to the markup within its cluster. Consequently, each
+            16-dimensional vector for a markup encapsulates two key aspects: 1) the cluster to which the markup belongs,
+            and 2) the precise location of the markup within that cluster.
+            <br/><br/>
+            <div style={{margin: "0 auto", textAlign: "center"}}>
+                <figure>
+                    <Zoom>
+                        <img
+                            alt="pca markup"
+                            src="../projects_image_to_latex_05.png"
+                            width="100%"
+                        />
+                    </Zoom>
+                    <figcaption style={{fontSize: "15px"}}><em>
+                        Each markup is represented by a dot in a two-dimensional space, with each dot corresponding to
+                        the assigned vector for the respective markup.
+                    </em></figcaption>
+                </figure>
+            </div>
+            <br/><br/>
+            <div className="heading-1">Training CNN Network</div>
+            <br/><br/>
+            As a recap, our goal is to implement an attention mechanism to address two key questions: 1. What markups
+            constitute the given image? 2. Where is the location of each markup within the image? With the completion of
+            the preceding steps, we have already addressed these questions. The 16-dimensional vector assigned to each
+            markup represents the markup itself, while the bounding box identified for each markup indicates its
+            location. With this information, we are now ready to proceed with the pre-training of our CNN network.
+            <br/><br/>
+            I utilized inception modules at different layers of the network because this architecture is well-suited for
+            handling different sizes of input images. Given that distinct markups are presented in the input image with
+            varying sizes, the network needs to be capable of effectively capturing these differences.
+            <br/><br/>
+            I created mock labels for training this network. Assuming the input image size is 60x360, I generated a
+            label map with dimensions 60x360x16. Let's take the example of the markup 'A' appearing in the input image
+            with a bounding box from point [30, 110] to point [40, 120]. The label map in this specified rectangle is
+            filled with the vector assigned to markup 'A.' This process is iteratively applied to all markups in the
+            image. Then, the network is trained to predict this label map.
+            <br/><br/>
+            <div style={{margin: "0 auto", textAlign: "center"}}>
+                <figure>
+                    <Zoom>
+                        <img
+                            alt="sample BB"
+                            src="../projects_image_to_latex_06.jpg"
+                            width="100%"
+                        />
+                    </Zoom>
+                    <figcaption style={{fontSize: "15px"}}><em>
+                        The sample image is displayed at the top, accompanied by its mock label map on the left and the
+                        CNN network's prediction on the right. Each row in the label map and prediction corresponds to a
+                        specific third dimension (16 layers overall).
+                    </em></figcaption>
+                </figure>
+            </div>
+            <br/><br/>
+            By employing this approach, we ensure that the CNN network is pre-trained to attend to various locations
+            within the image. The network is now prepared to be integrated into the attention mechanism to extract the
+            LaTeX code.
+            <br/><br/>
+            <div className="heading-1">Transformer</div>
+            <br/><br/>
+            In the final step, a language model is employed to translate these markups considering their respective
+            locations in the image. The Transformer architecture, known for its reliance on the attention mechanism, is
+            chosen for this task. The extracted feature maps from the CNN inception network serve as the input for the
+            Transformer, which sequentially generates each vocabulary at every time step.
+            <br/><br/>
+            In the embedding section of the Transformer, I employed the skip-gram method to pre-train the embedding
+            matrix. Additionally, certain parts of the network, notably the positional encoding block, were modified to
+            accommodate three-dimensional images. The provided image illustrates a sample input image along with its
+            predicted LaTeX code.
+            <br/><br/>
+            <div style={{margin: "0 auto", textAlign: "center"}}>
+                <figure>
+                    <Zoom>
+                        <img
+                            alt="transformer results"
+                            src="../projects_image_to_latex_07.png"
+                            width="100%"
+                        />
+                    </Zoom>
+                    <figcaption style={{fontSize: "15px"}}><em>
+                        Results of Transformer network with attention to different locations for generating markups.
+                    </em></figcaption>
+                </figure>
+            </div>
+            <br/><br/>
+            <div className="heading-1">Conclusion</div>
+            <br/><br/>
+            This article addresses the difficulty of integrating mathematical equations into LaTeX papers and proposes a
+            solution using deep NNs with attention mechanisms. I modified the structure to enhance attention and
+            suggests using Inception modules in CNN blocks. I presented challenges in handling unique vocabularies. The
+            process involves finding bounding boxes, assigning vectors to markups, and training a CNN network. The final
+            step employs a Transformer architecture to translate markups into LaTeX code based on their locations in the
+            image.
+            <br/><br/>
+            In my opinion, all steps were executed successfully except for the final one. The Transformer network did
+            not generate the codes as anticipated. For future work, readers are encouraged to propose improved
+            structures to enhance the performance of the Transformer network.
         </div>
     );
 };
