@@ -420,8 +420,8 @@ const ProjectBody02 = () => {
                     <Zoom>
                         <img
                             alt="Image2Latex Logo"
-                            src="../projects_image_to_latex_01.png"
-                            width="100%"
+                            src="../projects_image_to_latex_01.jpg"
+                            width="600px"
                         />
                     </Zoom>
                     <figcaption style={{fontSize: "15px"}}><em>
@@ -433,7 +433,7 @@ const ProjectBody02 = () => {
             One of the most challenging aspects of writing an academic paper with LaTeX is inserting mathematical
             equations and formulas. One approach is to write the formula on a piece of paper, take a picture of it, and
             then use Optical Character Recognition (OCR) engines to convert it into a typed equation. While there are
-            already OCR engines that can convert handwritten text into typed text, there are few examples that
+            already OCR engines that can convert handwritten text into typed text, there are a few examples that
             specialize in handling mathematical images.
             <br/><br/>
             In this article, I am going to explain how I utilized deep neural networks to convert a computer-generated
@@ -461,7 +461,8 @@ const ProjectBody02 = () => {
                         />
                     </Zoom>
                     <figcaption style={{fontSize: "15px"}}><em>
-                        Show, Attend and Tell from https://zhuanlan.zhihu.com/p/32333802
+                        Show, Attend and Tell from <a target="_blank" rel="noreferrer"
+                                                      href="https://zhuanlan.zhihu.com/p/32333802">this link</a>
                     </em></figcaption>
                 </figure>
             </div>
@@ -553,8 +554,9 @@ const ProjectBody02 = () => {
             image. The process entails sliding the unique markup across the image, calculating the correlation between
             the markup and each location it passes through, resulting in a correlation matrix. The peak index in this
             matrix corresponds to the location where the markup most closely resembles the pattern at that point. To
-            enhance this process, I employed a more sophisticated method known as TM_SQDIFF_NORMED, which normalizes
-            these correlations.
+            enhance this process, I employed a more sophisticated method known as <a target="_blank" rel="noreferrer"
+                                                                                     href="https://docs.opencv.org/4.x/df/dfb/group__imgproc__object.html">TM_SQDIFF_NORMED</a>,
+            which normalizes these correlations.
             <br/><br/>
             However, there are two challenges with this method. First, the size of the specific markup in the image may
             deviate from the original markup. Second, executing this method for all 2608 unique markups proves to be
@@ -564,7 +566,7 @@ const ProjectBody02 = () => {
             Estimating the range of sizes involves comparing the size of the image with that of the markup.
             For the second problem, using the label of the image in the dataset (the LaTeX code) proves to be a useful
             strategy. Extracting the used markups and their frequency of occurrence can be easily achieved by reading
-            the LaTeX code. It is important to be caution with specific vocabularies such as \mathcal and \textbf that
+            the LaTeX code. It is important to be cautious with specific vocabularies such as \mathcal and \textbf that
             generate combined markups.
             <br/><br/>
             <div style={{margin: "0 auto", textAlign: "center"}}>
@@ -687,7 +689,7 @@ const ProjectBody02 = () => {
             <br/><br/>
             This article addresses the difficulty of integrating mathematical equations into LaTeX papers and proposes a
             solution using deep NNs with attention mechanisms. I modified the structure to enhance attention and
-            suggests using Inception modules in CNN blocks. I presented challenges in handling unique vocabularies. The
+            suggested using Inception modules in CNN blocks. I presented challenges in handling unique vocabularies. The
             process involves finding bounding boxes, assigning vectors to markups, and training a CNN network. The final
             step employs a Transformer architecture to translate markups into LaTeX code based on their locations in the
             image.
