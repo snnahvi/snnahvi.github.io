@@ -705,7 +705,327 @@ const ProjectBody02 = () => {
 const ProjectBody03 = () => {
     return (
         <div>
-            BUILDING ...
+            <em style={{fontSize: "15px"}}>Last updated: 20 Nov, 2023</em>
+            <div style={{margin: "0 auto", textAlign: "center"}}>
+                <figure>
+                    <Zoom>
+                        <img
+                            alt="EMG Sensors Logo"
+                            src="../projects_emg_sensors_01.jpeg"
+                            width="400px"
+                        />
+                    </Zoom>
+                    <figcaption style={{fontSize: "15px"}}><em>
+                        EMG sensors
+                    </em></figcaption>
+                </figure>
+            </div>
+
+            Imagine you want to create an artificial arm attached to your own arm to assist in carrying heavy objects.
+            This arm could also be beneficial for individuals with damaged arms as part of their rehabilitation.
+            Developing such a robot involves an interdisciplinary process that combines electrical, mechanical, and
+            chemical engineering. The design of the joints and the materials chosen for this purpose, along with the
+            associated hardware and software requirements, play a crucial role in achieving success in this endeavor.
+            <br/><br/>
+            In this article, I will show the steps involved in designing and implementing electrical components, along
+            with the utilization of data acquisition and data processing tools. The collection and processing of data
+            through a structured infrastructure constitute basic stages in the development of a complete artificial arm.
+            <br/><br/>
+            Several sensors are employed for this purpose, including an accelerometer for position estimation, a
+            gyroscope for angle estimation, a camera for capturing various parts of the arm, and EMG sensors for
+            measuring muscle activity—these are among the most critical sensors utilized. A complete application
+            leverages all of these sensors, aggregating their data to estimate all state variables of the arm and reduce
+            the impact of noise.
+            <br/><br/>
+            I employed six EMG sensors in this project to estimate the forces applied by muscles in four distinct tasks:
+            1) wrist flexion (for grasping objects in the hand), 2) forearm supination, 3) forearm pronation (for
+            rotating objects held in the hand), and 4) elbow flexion (for applying additional force when lifting heavy
+            objects). I recorded signals from six muscles involved in these tasks: Biceps Brachii, Triceps Brachii,
+            Flexor Carpi Radialis, Extensor Digitorum, Flexor Carpi Ulnaris, and Abductor Pollicis Brevis.
+            <br/><br/>
+            <div style={{margin: "0 auto", textAlign: "center"}}>
+                <figure>
+                    <Zoom>
+                        <img
+                            alt="task description and hand mucsles"
+                            src="../projects_emg_sensors_02.jpg"
+                            width="100%"
+                        />
+                    </Zoom>
+                    <figcaption style={{fontSize: "15px"}}><em>
+                        Three tasks (left) adapted from <a target="_blank" rel="noreferrer"
+                                                           href="https://tommorrison.uk/">this link</a> and
+                        recorded muscles (right) adapted from <a target="_blank" rel="noreferrer"
+                                                                 href="https://nursing.unboundmedicine.com/nursingcentral/view/Tabers-Dictionary/742111/all/arm">this
+                        link</a>.
+                    </em></figcaption>
+                </figure>
+            </div>
+            <br/><br/>
+            The final goal of this project is to establish a real-time system for classifying the current status of the
+            arm and hand. In the following sections, I will begin by describing the hardware and software platforms.
+            Next, I will elaborate on the concept of low-delay filtering for these signals. Finally, the implementation
+            of a random forest for classification and its corresponding results will be presented.
+            <br/><br/>
+            <div className="heading-1">Hardware and Software Design</div>
+            <br/><br/>
+            To understand the recording of muscular activity, it is essential to understand how muscles are activated
+            through motor neurons. These neurons generate electrical impulses, known as action potentials, within muscle
+            fibers. These impulses traverse through layers of fat and skin, eventually reaching the skin's surface.
+            Placing two electrodes on different areas of the skin allows us to capture the difference between them,
+            representing a function, such as a simple gain, of these impulses. It is important to note that these
+            impulses have a small amplitude, typically around 5mV. Additionally, the electrodes pick up distinct
+            impulses from various cells, resulting in the observed signal being a summation with different gains and
+            polarities. When we amplify and record from the skin, the signal we observe reflects this complex summation.
+            <br/><br/>
+            <div style={{margin: "0 auto", textAlign: "center"}}>
+                <figure>
+                    <Zoom>
+                        <img
+                            alt="raw data"
+                            src="../projects_emg_sensors_03.jpg"
+                            width="100%"
+                        />
+                    </Zoom>
+                    <figcaption style={{fontSize: "15px"}}><em>
+                        The raw amplified signal is recorded from the Biceps Brachii. Fluctuations in the signal
+                        increase when the muscle is activated, with intervals of muscle contraction highlighted by red
+                        lines.
+                    </em></figcaption>
+                </figure>
+            </div>
+            <br/><br/>
+            In summary, the crucial aspect is that the variability of the signal encodes muscle activity. The process of
+            extracting data from the raw signal involves the following steps:
+            <br/>
+            <ul>
+                <li>
+                    Remove the baseline of the signal.
+                </li>
+                <li>
+                    Amplify the signal.
+                </li>
+                <li>
+                    Extract fluctuations using a high-pass filter.
+                </li>
+                <li>
+                    Detect the envelope of the signal.
+                </li>
+            </ul>
+            <br/>
+            Fortunately, a circuit module has been designed using the <a target="_blank" rel="noreferrer"
+                                                                         href="https://www.analog.com/media/en/technical-documentation/data-sheets/ad8221.pdf">AD8221
+            instrumental amplifier</a> that performs these steps
+            with analog ICs. The schematic below illustrates the various components of this module, each with its
+            designated role.
+            <br/><br/>
+            <div style={{margin: "0 auto", textAlign: "center"}}>
+                <figure>
+                    <Zoom>
+                        <img
+                            alt="circuit"
+                            src="../projects_emg_sensors_04.jpg"
+                            width="100%"
+                        />
+                    </Zoom>
+                    <figcaption style={{fontSize: "15px"}}><em>
+                        Block diagram of muscular activity circuit and the role of different parts.
+                    </em></figcaption>
+                </figure>
+            </div>
+            <br/><br/>
+            The next figure displays the input and output of this module.
+            <br/><br/>
+            <div style={{margin: "0 auto", textAlign: "center"}}>
+                <figure>
+                    <Zoom>
+                        <img
+                            alt="circuit input output"
+                            src="../projects_emg_sensors_05.png"
+                            width="100%"
+                        />
+                    </Zoom>
+                    <figcaption style={{fontSize: "15px"}}><em>
+                        Input (blue) and output (red) of the muscular activity module.
+                    </em></figcaption>
+                </figure>
+            </div>
+            <br/><br/>
+            I utilized six modules to record muscular activity from different muscles. The output of each module is
+            discretized using 16-bit Analog-to-Digital <a target="_blank" rel="noreferrer"
+                                                          href="https://www.ti.com/product/ADS1113">ADS1113
+            converters</a> with a
+            frequency of approximately 100 Hz. Subsequently, the data is transmitted to the Raspberry Pi (RPi) B4
+            running the Ubuntu OS. On the RPi, I executed a Jupyter Notebook server, enabling me to interactively
+            visualize real-time measurements.
+            <br/><br/>
+            I found an intriguing concept. Prior to connecting to the RPi, I ensured the proper functioning of each
+            module by measuring the output signal with an impedance meter, powered by batteries. However, upon
+            connecting them to the RPi and utilizing their power source for the modules, I consistently encountered
+            saturated readings in the output signal. Initially perplexed, I double-checked all the components but could
+            not find a solution. Eventually, I speculated that the reason might be the noise carried by the residential
+            electricity passing through the RPi adapter. To address this, I decoupled the power source for the sensors
+            from both the RPi and the residential electricity, powering them with batteries and connecting everything
+            via a decoupler IC, the <a target="_blank" rel="noreferrer"
+                                       href="https://www.analog.com/media/en/technical-documentation/data-sheets/adum1250_1251.pdf">ADuM1250</a>.
+            This module transmitted digital data (specifically the I2C data) using photons, functioning as an
+            opto-coupler. Following this modification, everything worked seamlessly.
+            <br/><br/>
+            In the final step of sensor calibration, I approached it as a linear model with a slope and a bias term.
+            Estimating the bias was straightforward; I short-circuited the input of the sensors to obtain this value. To
+            determine the slope term, I connected each electrode to its corresponding muscle and exerted maximum muscle
+            contraction. I then assigned this value to the maximum number that the A2D can read. This method ensures the
+            utilization of the full range of the A2D.
+            <br/><br/>
+            <div className="heading-1">Data Filtering on RPi</div>
+            <br/><br/>
+            After confirming the functionality of all hardware and software components and ensuring correct data
+            reading, the next step is to assess data quality. One immediate observation was the presence of
+            high-frequency noise on each channel that needed to be addressed. While a straightforward solution might
+            involve implementing a digital linear lowpass filter, caution is necessary in designing such a filter as it
+            introduces some delay to the data. In a real-time application like this, minimizing delay is crucial—there
+            is discomfort if the rehabilitation arm responds 500 milliseconds after the patient's arm movement.
+            <br/><br/>
+            I explored various designs of linear filters and conducted a comparison. The optimal choice in terms of
+            delay turned out to be the <a target="_blank" rel="noreferrer"
+                                          href="https://en.wikipedia.org/wiki/Chebyshev_filter">Chebyshev2</a> lowpass
+            filter, which
+            exhibited a delay of 100 ms. I proposed an idea: since the <a target="_blank" rel="noreferrer"
+                                                                          href="https://dsp.stackexchange.com/questions/9467/what-is-the-advantage-of-matlabs-filtfilt">filtfilt</a> method
+            provides zero delay
+            but is anti-causal, making it unsuitable for real-time applications, I posed the question of identifying the
+            most linear filter that closely resembles the filtfilt output. To answer this, I recorded data from the
+            sensors, computed the filtfilt of the data, and subsequently trained a single-layer fully-connected network
+            using MSE loss. The goal was to find the best filter that closely approximates the filtfilt output.
+            Essentially, this process resembled the least square method. Initially, I experimented with adding some
+            nonlinearity functions, but they did not yield significant improvements. The result was remarkable: the
+            delay was reduced to approximately 50 ms.
+            <br/><br/>
+            <div style={{margin: "0 auto", textAlign: "center"}}>
+                <figure>
+                    <Zoom>
+                        <img
+                            alt="different lowpass filters"
+                            src="../projects_emg_sensors_06.png"
+                            width="100%"
+                        />
+                    </Zoom>
+                    <figcaption style={{fontSize: "15px"}}><em>
+                        Comparison of different linear lowpass filters with my method (Neural Network).
+                    </em></figcaption>
+                </figure>
+            </div>
+            <br/><br/>
+            <div className="heading-1">Task Definition and Recording</div>
+            <br/><br/>
+            To reach the goal of the project -identify the state of the arm and hand to separate specific conditions- I
+            should define some tasks for different subjects and record six muscular activities. Based on different
+            combinations of the basic tasks, I defined 30 experiments for subjects to do. I asked them to repeat each
+            experiment 5 times with different intensities. These are examples of the experiments:
+            <br/>
+            <ul>
+                <li>
+                    Arm extended forward at a 60-degree angle, fingers clenched into a fist, wrist in a neutral
+                    position at 0 degrees, elbow with a rotational angle of 90 degrees. Movement: Rotate the elbow from
+                    0 degrees to 180 degrees and vice versa.
+                </li>
+                <li>
+                    In a free and neutral position, fingers clenched into a fist with the palm facing inward, wrist in
+                    a neutral position at 0 degrees, and elbow with a rotational angle of 90 degrees. Movement: Rotate
+                    the elbow outward to a 90-degree angle and then return to a 0-degree angle.
+                </li>
+                <li>
+                    Arm in a free and neutral position at 0 degrees, fingers in an open and extended position, wrist
+                    in a neutral position at 0 degrees, and elbow at a 180-degree angle (without pressure). Movement:
+                    Rotate the elbow in a circular motion to a -90-degree angle inward and then return to a 0-degree
+                    angle.
+                </li>
+            </ul>
+            <br/>
+            I interactively monitored data in a Jupyter Notebook to ensure electrode connectivity and signal quality.
+            Below, I present examples from two recording sessions.
+            <br/><br/>
+            <div style={{margin: "0 auto", textAlign: "center"}}>
+                <figure>
+                    <Zoom>
+                        <img
+                            alt="example recordings"
+                            src="../projects_emg_sensors_07.jpg"
+                            width="100%"
+                        />
+                    </Zoom>
+                    <figcaption style={{fontSize: "15px"}}><em>
+                        Two examples (top and bottom) of muscular activities corresponding to two different experiments.
+                        Each experiment involves five repetitions of the same movement.
+                    </em></figcaption>
+                </figure>
+            </div>
+            <br/><br/>
+            <div className="heading-1">Classifying arm and hand status with random forest</div>
+            <br/><br/>
+            As the final step, our aim is to develop a real-time application that can instantly determine the status of
+            the hand, encompassing the four conditions mentioned earlier, in addition to the resting state. This problem
+            is formulated as a classification problem with five classes, including the resting state. After labeling the
+            data using the <a target="_blank" rel="noreferrer"
+                              href="https://github.com/Geocene/trainset">Trainset</a>, I organized each segment of
+            experiment
+            recordings based on its class to create a dataset suitable for classification. Each record in the dataset
+            contains a time series with varying length.
+            <br/><br/>
+            I used the <a target="_blank" rel="noreferrer"
+                          href="https://en.wikipedia.org/wiki/Random_forest">Random Forest classifier</a> for two main
+            reasons.
+            Firstly, it is computationally efficient and can run on the Raspberry Pi with minimal latency, making it
+            suitable for real-time applications. Secondly, as an ensemble learning method, it helps prevent overfitting.
+            <br/><br/>
+            The features of the input for this classifier are constructed at each time-step as a stack of 50 values of
+            the filtered signal, sampled at a frequency of 50Hz for each channel. In total, the number of inputs for the
+            classifier is 50x6 (50 samples from each of the six channels). I trained the random forest using this
+            approach, and the confusion matrix is plotted in the figure below.
+            <br/><br/>
+            <div style={{margin: "0 auto", textAlign: "center"}}>
+                <figure>
+                    <Zoom>
+                        <img
+                            alt="confusion matrix"
+                            src="../projects_emg_sensors_08.png"
+                            width="100%"
+                        />
+                    </Zoom>
+                    <figcaption style={{fontSize: "15px"}}><em>
+                        Confusion matrix of prediction the status of the arm with random forest.
+                    </em></figcaption>
+                </figure>
+            </div>
+            <br/><br/>
+            The image below illustrates an example of real-time arm status prediction. Upon inspection, it appears that
+            the classifier successfully predicts the status during transitions from the resting state to another state
+            but encounters difficulty in predicting the status when muscle activity remains constant.
+            <br/><br/>
+            <div style={{margin: "0 auto", textAlign: "center"}}>
+                <figure>
+                    <Zoom>
+                        <img
+                            alt="realtime tests"
+                            src="../projects_emg_sensors_09.png"
+                            width="100%"
+                        />
+                    </Zoom>
+                    <figcaption style={{fontSize: "15px"}}><em>
+                        Actual vs predictions of classifier in a real-time application.
+                    </em></figcaption>
+                </figure>
+            </div>
+            <br/><br/>
+            <div className="heading-1">Conclusion</div>
+            <br/><br/>
+            This article explored the process of designing and implementing electrical components and data processing
+            approaches for an artificial arm. The importance of low-delay data filtering on the Raspberry Pi was
+            emphasized, underscoring the need for minimal delay in real-time applications. This article detailed
+            specific experiments to identify arm and hand states, leading to the implementation of a Random Forest
+            classifier for real-time status prediction. Despite challenges in predicting constant muscle activity, the
+            classifier demonstrated success in transitions between states, showcasing the promising potential of this
+            artificial arm.
         </div>
     );
 };
