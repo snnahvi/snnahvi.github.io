@@ -31,7 +31,7 @@ const Footer = () => {
                         <br/>
                         Designed and implemented by me
                         <br/>
-                        using <a href="https://github.com/truethari/reactfolio" target="_blank">this wonderful template</a>
+                        using <a href="https://github.com/truethari/reactfolio" target="_blank" rel="noreferrer">this wonderful template</a>
                     </div>
                 </div>
             </div>
