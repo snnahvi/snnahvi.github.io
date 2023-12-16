@@ -22,7 +22,7 @@ const Works = () => {
 							/>
 							<div className="work-title">Sharif University of Technology</div>
 							<div className="work-subtitle">
-								Msc, Electrical Engineering, <b>CGPA 4.0</b>
+								MSc, Electrical Engineering, <b>CGPA 4.0</b>
 								<div style={{paddingTop: "5px"}}>
 									<FontAwesomeIcon icon={faTrophy}/> Honorary admission (Exceptional Talent)
 								</div>
@@ -38,7 +38,7 @@ const Works = () => {
 							/>
 							<div className="work-title">Sharif University of Technology</div>
 							<div className="work-subtitle">
-								Bsc, Electrical Engineering, <b>CGPA 3.96</b>
+								BSc, Electrical Engineering, <b>CGPA 3.96</b>
 								<div style={{paddingTop: "5px"}}>
 									<FontAwesomeIcon icon={faTrophy}/> 23<sup>rd</sup> place, national university exam (Konkur)
 								</div>
