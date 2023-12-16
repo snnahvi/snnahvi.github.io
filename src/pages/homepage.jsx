@@ -144,9 +144,9 @@ const Homepage = () => {
 
                         <div style={{width: "100%", height: "10px"}}/>
 
-                        <div className="homepage-first-area">
+                        <div className="homepage-first-area" style={{paddingTop: "30px"}}>
                             <div className="homepage-first-area-left-side">
-                                <div className="title homepage-title" style={{paddingTop: "100px"}}>
+                                <div className="title homepage-title">
                                     Research Interests
                                 </div>
 
@@ -171,7 +171,7 @@ const Homepage = () => {
 
 
 
-                        <div className="projects-container" id="projects">
+                        <div className="projects-container" id="projects" style={{paddingTop: "50px"}}>
                             <div className="title homepage-title-others">
                                 Projects
                             </div>
@@ -182,7 +182,7 @@ const Homepage = () => {
 
 
 
-                        <div className="articles-main-container" id="publications">
+                        <div className="articles-main-container" id="publications"  style={{paddingTop: "50px"}}>
                             <div className="title homepage-title-others">
                                 Publications
                             </div>

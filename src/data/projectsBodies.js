@@ -418,10 +418,9 @@ const ProjectBody02 = () => {
             <div style={{margin: "0 auto", textAlign: "center"}}>
                 <figure>
                     <Zoom>
-                        <img
+                        <img className="image-1"
                             alt="Image2Latex Logo"
                             src="../projects_image_to_latex_01.jpg"
-                            width="600px"
                         />
                     </Zoom>
                     <figcaption style={{fontSize: "15px"}}><em>
@@ -709,10 +708,9 @@ const ProjectBody03 = () => {
             <div style={{margin: "0 auto", textAlign: "center"}}>
                 <figure>
                     <Zoom>
-                        <img
+                        <img className="image-2"
                             alt="EMG Sensors Logo"
                             src="../projects_emg_sensors_01.jpeg"
-                            width="400px"
                         />
                     </Zoom>
                     <figcaption style={{fontSize: "15px"}}><em>

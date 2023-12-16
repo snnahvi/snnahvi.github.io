@@ -161,7 +161,7 @@
 
 	.homepage-works {
 		flex-basis: auto;
-		margin-left: -25px;
-		margin-right: -25px;
+		margin-left: 25px;
+		margin-right: 25px;
 	}
 }

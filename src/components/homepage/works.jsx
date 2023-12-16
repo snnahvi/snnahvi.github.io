@@ -1,9 +1,10 @@
 import React from "react";
-import {faUserGraduate} from "@fortawesome/free-solid-svg-icons";
+import {faUserGraduate, faTrophy, } from "@fortawesome/free-solid-svg-icons";
 
 import Card from "../common/card";
 
 import "./styles/works.css";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 const Works = () => {
 	return (
@@ -22,6 +23,9 @@ const Works = () => {
 							<div className="work-title">Sharif University of Technology</div>
 							<div className="work-subtitle">
 								Msc, Electrical Engineering, <b>CGPA 4.0</b>
+								<div style={{paddingTop: "5px"}}>
+									<FontAwesomeIcon icon={faTrophy}/> Honorary admission (Exceptional Talent)
+								</div>
 							</div>
 							<div className="work-duration">2018 - 2021</div>
 						</div>
@@ -35,6 +39,9 @@ const Works = () => {
 							<div className="work-title">Sharif University of Technology</div>
 							<div className="work-subtitle">
 								Bsc, Electrical Engineering, <b>CGPA 3.96</b>
+								<div style={{paddingTop: "5px"}}>
+									<FontAwesomeIcon icon={faTrophy}/> 23<sup>rd</sup> place, national university exam (Konkur)
+								</div>
 							</div>
 							<div className="work-duration">2014 - 2018</div>
 						</div>
