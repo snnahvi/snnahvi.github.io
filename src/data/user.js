@@ -1,8 +1,8 @@
 const INFO = {
 	main: {
-		title: "Mohammad Reza Heydari",
-		name: "M. Reza Heydari",
-		email: "mrheydarigandi531306@gmail.com",
+		title: "Sana Nahvi",
+		name: "A. Sana Nahvi",
+		email: "snnahvi@gmail.com",
 	},
 };
 

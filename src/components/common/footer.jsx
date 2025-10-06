@@ -11,11 +11,11 @@ const Footer = () => {
                     <ul className="footer-nav-link-list">
                         <li className="footer-nav-link-item">
                             <div className="subtitle-footer">About</div>
-                            Mohammad Reza Heydari
+                            Sana Nahvi
                             <br/>
-                            Electrical Engineer
+                            Computer Engineer
                             <br/>
-                            Sharif University of Technology
+                            University of Maryland Baltimore County
                         </li>
                         <li className="footer-nav-link-item">
                             <div className="subtitle-footer">Contact</div>
@@ -27,11 +27,11 @@ const Footer = () => {
 
                 <div className="footer-credits">
                     <div className="footer-credits-text">
-                        © 2023 Mohammad Reza Heydari
+                        © 2025 Sana Nahvi
                         <br/>
                         Designed and implemented by me
                         <br/>
-                        using <a href="https://github.com/truethari/reactfolio" target="_blank" rel="noreferrer">this wonderful template</a>
+                        using <a href="https://github.com/RezaHe/rezahe.github.io" target="_blank" rel="noreferrer">this wonderful template</a>
                     </div>
                 </div>
             </div>
