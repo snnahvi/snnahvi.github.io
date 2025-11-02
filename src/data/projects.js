@@ -1,25 +1,25 @@
 const PROJECTS = [
     {
         order: 0,
-        date: "Jan 2021",
-        title: "SpartanX",
+        date: "Fall 2022",
+        title: "Gamification for children’s road awareness skills",
         description:
-            "A fully-automated AI-based system for trading in the stock market using a high frequency trading method",
+            "This project presents a serious game that effectively educates children on traffic laws through virtual scenarios.",
         keywords: [],
         body:
             ``,
-        logo: "projects_spartan_x_01.jpg",
+        logo: "project_Gamification.png",
         linkText: "View Project",
         link: "spartan-x",
     },
 
     {
         order: 1,
-        date: "Jun 2019",
-        title: "Image2Latex",
+        date: "May 2024",
+        title: "MRI image processing",
         description:
-            "A DL project to extract LaTex formula code of a given mathematical image",
-        logo: "projects_image_to_latex_01.jpg",
+            "Implemented automated workflows for image registration to extract the region of interest of white matter hyperintensities in MRI cases according to the JHU atlas",
+        logo: "MRI_IP_Project.png",
         keywords: [],
         body:
             "Building ...",
@@ -29,11 +29,11 @@ const PROJECTS = [
 
     {
         order: 2,
-        date: "Aug 2020",
-        title: "EMG Sensors",
+        date: "Oct 2025",
+        title: "Redesign of Zara’s website",
         description:
-            "Six simultaneous emg recording device using ad8221 and Python on RPi B4 linux system",
-        logo: "projects_emg_sensors_01.jpeg",
+            "We redesigned Zara's website based on the 6 design principles: visibility, consistency, constraints, feedback, affordance, and mapping.",
+        logo: "Zara-logo.jpg",
         keywords: [],
         body:
             "Building ...",

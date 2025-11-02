@@ -1,59 +1,59 @@
 function article_1() {
     return {
-        date: "Apr 2017",
-        title: "OBTAIN: Real-Time Beat Tracking in Audio Signals",
+        date: "Sep 2023",
+        title: "Implementing a serious traffic game to improve children’s road awareness skills",
         description:
-            "A real-time beat tracking system utilizing OSS for onset detection, tempo estimation, and CBSS formation, achieving superior prediction accuracy in simulations compared to other methods, while maintaining computational complexity and performance.",
+            "This paper presents a serious game designed to teach children traffic rules through immersive virtual simulations. Two scenarios illustrate seven key street-crossing laws, with learning assessed via pretest, training, and posttest. Results show that the game effectively enhances children’s understanding and safe traffic behavior.",
         keywords: [
-            "Onset Strength Signal",
-            "Tempo estimation",
-            "Beat onset",
-            "Cumulative Beat Strength Signal",
-            "Peak detection",
+            "child road awareness skills",
+            "traffic safety",
+            "game based learning",
+            "traffic game",
+            "game engine",
         ],
-        image: "publications_1.jpg",
-        link: "https://arxiv.org/abs/1704.02216",
+        image: "Paper_Beheshti.png",
+        link: "https://ieeexplore.ieee.org/abstract/document/10335530",
     };
 }
 
 function article_2() {
     return {
-        date: "Nov 2021",
-        title: "Adversarial orthogonal regression: Two non-linear regressions for causal inference",
+        date: "Apr 2024",
+        title: "Could sex differences affect the correlations between fluid biomarkers and white matter hyperintensities?",
         description:
-            "Two novel nonlinear regression techniques: AdOR for additive noise models and AdOSE for general structural equation models. These methods, operating as minimax two-player games, ensure regression residuals are independent of regressors without assuming noise distribution, providing effective solutions for various causality learning problems.",
+            "The study found sex-based differences in dementia: females showed stronger links between inflammatory markers and white matter damage, while males showed associations with Aβ42, indicating distinct brain and vascular responses.",
         keywords: [
-            "Orthogonal regression",
-            "Adversarial models",
-            "Additive noise model",
-            "Structural equation model",
-            "Mutual information",
+            "Sex differences",
+            "White matter hyperintensities (WMH)",
+            "Cerebrovascular reactivity (CVR)",
+            "Fluid biomarkers",
+            "Alzheimer’s disease and vascular cognitive impairment (AD/VCID)",
         ],
-        image: "publications_2.jpg",
-        link: "https://www.sciencedirect.com/science/article/abs/pii/S0893608021002148",
+        image: "Paper_uky.png",
+        link: "https://alz-journals.onlinelibrary.wiley.com/doi/full/10.1002/alz.092095",
     };
 }
 
-function article_3() {
-    return {
-        date: "Nov 2023",
-        title: "Prefrontal cortex signals value category while basal ganglia represent learned values in value learning",
-        description:
-            "Investigated the neural mechanisms underlying variable value learning in macaque monkeys associating novel objects with high or low rewards. Prefrontal cortex (PFC) rapidly differentiated objects by value, while substantia nigra reticulata (SNr) firing correlated with variability in learned values, suggesting SNr may contribute to the observed diversity in object values.",
-        keywords: [
-            "value learning",
-            "prefrontal cortex",
-            "substantia nigra reticulata",
-            "basal ganglia",
-            "reinforcement learning",
-            "electrophysiology",
-            "recurrent neural networks",
-        ],
-        image: "publications_3.jpg",
-        link: "https://www.biorxiv.org/content/10.1101/2023.11.07.564561v1",
-    };
-}
+// function article_3() {
+//     return {
+//         date: "Nov 2023",
+//         title: "Prefrontal cortex signals value category while basal ganglia represent learned values in value learning",
+//         description:
+//             "Investigated the neural mechanisms underlying variable value learning in macaque monkeys associating novel objects with high or low rewards. Prefrontal cortex (PFC) rapidly differentiated objects by value, while substantia nigra reticulata (SNr) firing correlated with variability in learned values, suggesting SNr may contribute to the observed diversity in object values.",
+//         keywords: [
+//             "value learning",
+//             "prefrontal cortex",
+//             "substantia nigra reticulata",
+//             "basal ganglia",
+//             "reinforcement learning",
+//             "electrophysiology",
+//             "recurrent neural networks",
+//         ],
+//         image: "publications_3.jpg",
+//         link: "https://www.biorxiv.org/content/10.1101/2023.11.07.564561v1",
+//     };
+// }
 
-const myArticles = [article_3, article_2, article_1];
-
+// const myArticles = [article_3, article_2, article_1];
+const myArticles = [article_2, article_1];
 export default myArticles;

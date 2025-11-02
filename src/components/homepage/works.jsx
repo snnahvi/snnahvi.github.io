@@ -16,34 +16,35 @@ const Works = () => {
 					<div className="works-body">
 						<div className="work">
 							<img
-								src="sharif.png"
-								alt="sharif"
+								src="umbc_logo.png"
+								alt="umbc"
 								className="work-image"
 							/>
-							<div className="work-title">Sharif University of Technology</div>
+							<div className="work-title">University of Maryland, Baltimore County (UMBC)</div>
 							<div className="work-subtitle">
-								MSc, Electrical Engineering, <b>CGPA 4.0</b>
+								MSc, Human-Centered Computing  
+								{/* MSc, Human-Centered Computing, <b>CGPA 4.0</b> */}
 								<div style={{paddingTop: "5px"}}>
-									<FontAwesomeIcon icon={faTrophy}/> Honorary admission (Exceptional Talent)
+									{/* <FontAwesomeIcon icon={faTrophy}/> Honorary admission (Exceptional Talent) */}
 								</div>
 							</div>
-							<div className="work-duration">2018 - 2021</div>
+							<div className="work-duration">Aug.2025 - May. 2027</div>
 						</div>
 
 						<div className="work">
 							<img
-								src="sharif.png"
-								alt="sharif"
+								src="Beheshti_logo.png"
+								alt="beheshti"
 								className="work-image"
 							/>
-							<div className="work-title">Sharif University of Technology</div>
+							<div className="work-title">Shahid Beheshti University</div>
 							<div className="work-subtitle">
-								BSc, Electrical Engineering, <b>CGPA 3.96</b>
+								BSc, Computer Engineering
 								<div style={{paddingTop: "5px"}}>
-									<FontAwesomeIcon icon={faTrophy}/> 23<sup>rd</sup> place, national university exam (Konkur)
+									{/* <FontAwesomeIcon icon={faTrophy}/> 23<sup>rd</sup> place, national university exam (Konkur) */}
 								</div>
 							</div>
-							<div className="work-duration">2014 - 2018</div>
+							<div className="work-duration">Sep.2018 - Feb.2023</div>
 						</div>
 					</div>
 				}

@@ -2,22 +2,22 @@ const SEO = [
 	{
 		page: "home",
 		description:
-			"I received my MSc and BSc degrees in Electrical Engineering from Sharif University. My major field is Control Systems. Our brain is a complex system capable of doing many tasks compared to a computer. I have delved into the neuroscience field to unravel its complexities. My goal is to leverage this understanding to contribute to the development of innovative tools and robots capable of seamless interaction with our most intricate organ. By merging knowledge of neuroscience with system analysis and data science tools, I aim to bridge the gap between the mind and machines.",
-		keywords: ["Mohammad Reza", "M. Reza", "Mohammad Reza Heydari", "Heydari", "M. Reza Heydari", "Reza Heydari"],
+			"This is Azadeh (Sana) Nahvi! You can call me Sana. I received my BSc in Computer Engineering, and I’m currently an MSc student in Human-Centered Computing (HCC) at UMBC. I’m very interested in learning and improving my skills in computer science. Since I’m at the beginning of my journey, I’ve worked on projects in various areas of computer science, but my main goal has always been to find ways to improve people’s everyday lives through technology.",
+		keywords: ["Azadeh Sana", "A. Sana", "Azadeh Sana Nahvi", "Nahvi", "A. Sana Nahvi", "Sana Nahvi", "Azadeh Nahvi"],
 	},
 
 	{
 		page: "projects",
 		description:
 			"My projects",
-		keywords: ["Mohammad Reza", "M. Reza", "Mohammad Reza Heydari", "Heydari", "M. Reza Heydari", "Reza Heydari"],
+		keywords: ["Azadeh Sana", "A. Sana", "Azadeh Sana Nahvi", "Nahvi", "A. Sana Nahvi", "Sana Nahvi", "Azadeh Nahvi"],
 	},
 
 	{
 		page: "publications",
 		description:
 			"My publications",
-		keywords: ["Mohammad Reza", "M. Reza", "Mohammad Reza Heydari", "Heydari", "M. Reza Heydari", "Reza Heydari"],
+		keywords: ["Azadeh Sana", "A. Sana", "Azadeh Sana Nahvi", "Nahvi", "A. Sana Nahvi", "Sana Nahvi", "Azadeh Nahvi"],
 	},
 ];
 
