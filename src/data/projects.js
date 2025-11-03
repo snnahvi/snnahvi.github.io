@@ -38,7 +38,7 @@ const PROJECTS = [
         body:
             "Building ...",
         linkText: "View Project",
-        link: "emg-sensors",
+        link: "zara-redesign",
     },
 
     // {
