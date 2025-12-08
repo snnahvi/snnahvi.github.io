@@ -1,34 +1,22 @@
 const PROJECTS = [
+    
     {
         order: 0,
-        date: "Fall 2022",
-        title: "Gamification for children’s road awareness skills",
+        date: "Dec 2025",
+        title: "Redesigning NotebookLM",
         description:
-            "This project presents a serious game that effectively educates children on traffic laws through virtual scenarios.",
-        keywords: [],
-        body:
-            ``,
-        logo: "project_Gamification.png",
-        linkText: "View Project",
-        link: "spartan-x",
-    },
-
-    {
-        order: 1,
-        date: "May 2024",
-        title: "MRI image processing",
-        description:
-            "Implemented automated workflows for image registration to extract the region of interest of white matter hyperintensities in MRI cases according to the JHU atlas",
-        logo: "MRI_IP_Project.png",
+            "An iterative UX redesign that makes NotebookLM clearer, and easier for first-time users.",
+        logo: "NotebookLM_logo.jpg",
         keywords: [],
         body:
             "Building ...",
         linkText: "View Project",
-        link: "image-2-latex",
+        link: "NotebookLM-redesign",
     },
+    
 
     {
-        order: 2,
+        order: 1,
         date: "Oct 2025",
         title: "Redesign of Zara’s website",
         description:
@@ -41,18 +29,33 @@ const PROJECTS = [
         link: "zara-redesign",
     },
 
-    // {
-    //     date: "Feb 2021",
-    //     title: "Population Analysis",
-    //     description:
-    //         "Using LFADS to reveal the population coding of vlPFC and SNr regions of Macaque in a value learning task",
-    //     logo: "projects_population_analysis_01.jpg",
-    //     keywords: [
-    //     ],
-    //     body:
-    //         "Building ...",
-    //     linkText: "View Project",
-    //     link: "population-analysis",
-    // },
+    {
+        order: 2,
+        date: "May 2024",
+        title: "MRI image processing",
+        description:
+            "Implemented automated workflows for image registration to extract the region of interest of white matter hyperintensities in MRI cases according to the JHU atlas",
+        logo: "MRI_IP_Project.png",
+        keywords: [],
+        body:
+            "Building ...",
+        linkText: "View Project",
+        link: "MRI_image_processing",
+    },
+    
+    {
+        order: 3,
+        date: "Fall 2022",
+        title: "Gamification for children’s road awareness skills",
+        description:
+            "This project presents a serious game that effectively educates children on traffic laws through virtual scenarios.",
+        keywords: [],
+        body:
+            ``,
+        logo: "project_Gamification.png",
+        linkText: "View Project",
+        link: "Gamification",
+    },
+    
 ];
 export default PROJECTS;
