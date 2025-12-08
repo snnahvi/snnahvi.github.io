@@ -1078,6 +1078,34 @@ const ProjectBody04 = () => {
 			automatically generated content.
 			<br />
 			<br />
+			{/* ------- VIDEO SECTION ------- */}
+			<div style={{ textAlign: "center", marginTop: "20px" }}>
+				<video
+					src="../PresentationVideo.mp4" // <-- replace with your actual path
+					controls
+					style={{
+						width: "100%",
+						maxWidth: "750px",
+						borderRadius: "16px",
+						boxShadow: "0 4px 20px rgba(0,0,0,0.1)",
+					}}
+				/>
+
+				<figcaption
+					style={{
+						fontSize: "14px",
+						marginTop: "8px",
+						color: "#555",
+					}}
+				>
+					<em>
+						Demo presentation summarizing Sprints 1 and 2 and how we
+						redesigned NotebookLM
+					</em>
+				</figcaption>
+			</div>
+			<br />
+			<br />
 			<br />
 			<div className="heading-1">Skills Demonstrated</div>
 			<ul>
