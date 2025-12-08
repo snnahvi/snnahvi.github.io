@@ -917,6 +917,7 @@ const ProjectBody04 = () => {
 					return (
 						<>
 							<div className="heading-1">
+								<br />
 								Sprint 1 — Empathize, Define &amp; Initial
 								Prototype
 							</div>
@@ -938,7 +939,54 @@ const ProjectBody04 = () => {
 							• Built the first high-level prototype integrating
 							selected ideas from the team.
 							<br />
+							{/* ---- Figma Link ---- */}
+							<div style={{ marginTop: "8px" }}>
+								<a
+									href="https://www.figma.com/proto/80pk5H9GSzHeC4DBGfbwJZ/HCC-629_?node-id=11058-4137&p=f&t=TZ2vDUWwdEExhBeT-1&scaling=min-zoom&content-scaling=fixed&page-id=11058%3A3144&starting-point-node-id=11058%3A4137"
+									target="_blank"
+									rel="noopener noreferrer"
+									style={{
+										color: "#3366BB",
+										textDecoration: "underline",
+										fontSize: "15px",
+										fontWeight: "500",
+									}}
+								>
+									View our interactive Figma prototype in
+									Sprint 1
+								</a>
+							</div>
 							<br />
+							{/* ---- GIF Section ---- */}
+							<div
+								style={{
+									textAlign: "center",
+									marginTop: "10px",
+								}}
+							>
+								<img
+									src="../Sprint1.GIF" // <-- your actual path here
+									alt="Sprint 1 Prototype GIF"
+									style={{
+										width: "100%",
+										maxWidth: "750px",
+										borderRadius: "14px",
+										boxShadow:
+											"0 4px 18px rgba(0,0,0,0.12)",
+									}}
+								/>
+								<figcaption
+									style={{
+										fontSize: "14px",
+										marginTop: "6px",
+										color: "#555",
+										fontStyle: "italic",
+									}}
+								>
+									Sprint 1 prototype demonstrating our first
+									pass at improving NotebookLM’s usability.
+								</figcaption>
+							</div>
 						</>
 					);
 
@@ -947,6 +995,7 @@ const ProjectBody04 = () => {
 					return (
 						<>
 							<div className="heading-1">
+								<br />
 								Sprint 2 — Usability Testing &amp; Refinement
 							</div>
 							<br />
@@ -977,7 +1026,55 @@ const ProjectBody04 = () => {
 							<br />• <strong>Visibility:</strong> Restored the
 							Studio panel and made feature descriptions clearer.
 							<br />
+							{/* ---- Figma Link ---- */}
+							<div style={{ marginTop: "8px" }}>
+								<a
+									href="https://www.figma.com/proto/80pk5H9GSzHeC4DBGfbwJZ/HCC-629_Team-Modifiers---Process-of-Interaction-Design?node-id=11302-11132&p=f&t=Ioeqi6AMsD6etqet-1&scaling=contain&content-scaling=fixed&page-id=11302%3A9576&starting-point-node-id=11302%3A11132"
+									target="_blank"
+									rel="noopener noreferrer"
+									style={{
+										color: "#3366BB",
+										textDecoration: "underline",
+										fontSize: "15px",
+										fontWeight: "500",
+									}}
+								>
+									View our interactive Figma prototype in
+									Sprint 2
+								</a>
+							</div>
 							<br />
+							{/* ---- GIF Section ---- */}
+							<div
+								style={{
+									textAlign: "center",
+									marginTop: "10px",
+								}}
+							>
+								<img
+									src="../Sprint2.GIF" // <-- your actual path here
+									alt="Sprint 2 Prototype GIF"
+									style={{
+										width: "100%",
+										maxWidth: "750px",
+										borderRadius: "14px",
+										boxShadow:
+											"0 4px 18px rgba(0,0,0,0.12)",
+									}}
+								/>
+								<figcaption
+									style={{
+										fontSize: "14px",
+										marginTop: "6px",
+										color: "#555",
+										fontStyle: "italic",
+									}}
+								>
+									Updated Sprint 2 prototype demonstrating
+									improvements based on user testing and
+									design principles.
+								</figcaption>
+							</div>
 						</>
 					);
 
