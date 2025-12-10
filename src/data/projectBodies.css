@@ -1,26 +1,26 @@
 .heading-1 {
-	font-size: 30px;
-	font-weight: bold;
-	line-height: 30px;
-	color: #000000;
+    font-size: 30px;
+    font-weight: bold;
+    line-height: 30px;
+    color: #000000;
 }
 
 .image-1 {
-	width: 600px;
+    width: 600px;
 }
 
 .image-2 {
-	width: 400px;
+    width: 400px;
 }
 
 @media (max-width: 1024px) {
-	.image-1 {
-		width: 100%;
-	}
+    .image-1 {
+        width: 100%;
+    }
 
-	.image-2 {
-		width: 100%;
-	}
+    .image-2 {
+        width: 100%;
+    }
 }
 
 .heading-1 {
@@ -39,6 +39,7 @@
 }
 
 @media (max-width: 1024px) {
+
     .image-1,
     .image-2 {
         width: 100%;
@@ -46,8 +47,10 @@
 }
 
 .project-logo-header {
-    width: 80%;        /* bigger */
-    max-width: 900px;  /* even bigger on desktop */
+    width: 80%;
+    /* bigger */
+    max-width: 900px;
+    /* even bigger on deskltop */
     height: auto;
     display: block;
     margin: 20px auto;
@@ -55,6 +58,7 @@
 
 .mapping-img {
     width: 100%;
-    
-    object-fit: contain;  /* keeps full image visible */
+
+    object-fit: contain;
+    /* keeps full image visible */
 }

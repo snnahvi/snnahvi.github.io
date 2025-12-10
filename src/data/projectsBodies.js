@@ -904,16 +904,19 @@ const styles = {
 	},
 };
 
+// ---------- TAB CONTENT SWITCHER ----------
+
 const ProjectBody04 = () => {
-	const [activeTab, setActiveTab] = useState("Sprint1");
+	const [activeTab, setActiveTab] = useState(
+		"Empathize, Define & Initial Prototype"
+	);
 
 	// ---------- TAB CONTENT SWITCHER ----------
-
 	const SprintTabs = () => {
 		const renderTabContent = () => {
 			switch (activeTab) {
 				// ---------------- SPRINT 1 ----------------
-				case "Sprint1":
+				case "Empathize, Define & Initial Prototype":
 					return (
 						<>
 							<div className="heading-1">
@@ -965,7 +968,7 @@ const ProjectBody04 = () => {
 								}}
 							>
 								<img
-									src="../Sprint1.GIF" // <-- your actual path here
+									src="../Sprint1.GIF"
 									alt="Sprint 1 Prototype GIF"
 									style={{
 										width: "100%",
@@ -991,7 +994,7 @@ const ProjectBody04 = () => {
 					);
 
 				// ---------------- SPRINT 2 ----------------
-				case "Sprint2":
+				case "Usability Testing & Refinement":
 					return (
 						<>
 							<div className="heading-1">
@@ -1052,7 +1055,7 @@ const ProjectBody04 = () => {
 								}}
 							>
 								<img
-									src="../Sprint2.GIF" // <-- your actual path here
+									src="../Sprint2.GIF"
 									alt="Sprint 2 Prototype GIF"
 									style={{
 										width: "100%",
@@ -1082,56 +1085,77 @@ const ProjectBody04 = () => {
 					return null;
 			}
 		};
-
 		return (
-			<div>
-				{/* Horizontal Tabs */}
+			<>
+				{/* ---------- TAB HEADERS ---------- */}
 				<div
 					style={{
 						display: "flex",
-						gap: "8px",
-						marginBottom: "16px",
+						justifyContent: "Left",
+						gap: "24px",
 						borderBottom: "1px solid #ddd",
+						paddingBottom: "8px",
+						marginBottom: "24px",
 					}}
 				>
 					<button
-						onClick={() => setActiveTab("Sprint1")}
+						onClick={() =>
+							setActiveTab(
+								"Empathize, Define & Initial Prototype"
+							)
+						}
 						style={{
 							border: "none",
 							background: "none",
-							padding: "8px 16px",
+							cursor: "pointer",
+							fontSize: "16px",
+							fontWeight:
+								activeTab ===
+								"Empathize, Define & Initial Prototype"
+									? "700"
+									: "500",
+							padding: "4px 0",
+							margin: "0",
+							paddingBottom: "6px",
 							borderBottom:
-								activeTab === "Sprint1"
+								activeTab ===
+								"Empathize, Define & Initial Prototype"
 									? "3px solid #000"
 									: "3px solid transparent",
-							fontWeight: activeTab === "Sprint1" ? "600" : "400",
-							cursor: "pointer",
 						}}
 					>
-						Sprint 1
+						Empathize, Define &amp; Initial Prototype
 					</button>
 
 					<button
-						onClick={() => setActiveTab("Sprint2")}
+						onClick={() =>
+							setActiveTab("Usability Testing & Refinement")
+						}
 						style={{
 							border: "none",
 							background: "none",
-							padding: "8px 16px",
+							cursor: "pointer",
+							fontSize: "16px",
+							fontWeight:
+								activeTab === "Usability Testing & Refinement"
+									? "700"
+									: "500",
+							padding: "4px 0",
+							margin: "0",
+							paddingBottom: "6px",
 							borderBottom:
-								activeTab === "Sprint2"
+								activeTab === "Usability Testing & Refinement"
 									? "3px solid #000"
 									: "3px solid transparent",
-							fontWeight: activeTab === "Sprint2" ? "600" : "400",
-							cursor: "pointer",
 						}}
 					>
-						Sprint 2
+						Usability Testing &amp; Refinement
 					</button>
 				</div>
 
-				{/* Tab Content */}
+				{/* ---------- TAB CONTENT ---------- */}
 				{renderTabContent()}
-			</div>
+			</>
 		);
 	};
 
