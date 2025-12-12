@@ -4,23 +4,431 @@ import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
 
 const ProjectBody01 = () => {
+	const [activeTab, setActiveTab] = useState("Donut");
+
+	// ---------- TAB CONTENT SWITCHER ----------
+	const renderTabContent = () => {
+		switch (activeTab) {
+			// ---------------- DONUT SCENARIO ----------------
+			case "Donut":
+				return (
+					<>
+						<div className="heading-1">Donut Scenario</div>
+						<br />
+						In this scenario, the child needs to cross the street to
+						reach a donut shop. The main goal is to encourage safe,
+						deliberate behavior before and during crossing.
+						<br />
+						<br />
+						<strong>Positive behaviors (score increases):</strong>
+						<ul>
+							<li>
+								Looking left and right before crossing, and
+								again in the middle of the street.
+							</li>
+							<li>Using the crosswalk.</li>
+							<li>
+								Choosing a safe character (no headphones, bright
+								clothing for visibility).
+							</li>
+							<li>
+								Crossing only when the pedestrian light turns
+								green.
+							</li>
+							<li>
+								Following the safe path marked by coins along
+								the way.
+							</li>
+						</ul>
+						<strong>Negative behaviors (score decreases):</strong>
+						<ul>
+							<li>
+								Standing or walking on the edge or in the middle
+								of the street.
+							</li>
+							<li>Attempting to cross during a red light.</li>
+							<li>Running across the street recklessly.</li>
+						</ul>
+						<br />
+						{/* Example GIF / media for Donut scenario */}
+						<div style={{ textAlign: "center" }}>
+							<figure style={{ margin: 0 }}>
+								<Zoom>
+									<img
+										src="../donut-scenario.gif"
+										alt="Donut Scenario Gameplay"
+										style={{
+											maxWidth: "100%",
+											height: "auto",
+										}}
+									/>
+								</Zoom>
+								<figcaption
+									style={{
+										marginTop: "8px",
+										fontSize: "14px",
+										color: "#555",
+									}}
+								>
+									<em>
+										Donut scenario: safe crossing to the
+										shop
+									</em>
+								</figcaption>
+							</figure>
+						</div>
+					</>
+				);
+
+			// ---------------- BALL SCENARIO ----------------
+			case "Ball":
+				return (
+					<>
+						<div className="heading-1">Ball Scenario</div>
+						<br />
+						In the Ball scenario, a ball rolls into the road and the
+						player must decide how to retrieve it safely. The
+						situation is familiar and realistic, which helps
+						children understand how quickly danger can appear in
+						everyday play.
+						<br />
+						<br />
+						<strong>Positive behaviors (score increases):</strong>
+						<ul>
+							<li>
+								Checking both directions carefully before
+								stepping into the street.
+							</li>
+							<li>
+								Selecting a safe character (no headphones,
+								bright clothing), just like in the Donut
+								scenario.
+							</li>
+							<li>
+								Following the coin-guided safe path instead of
+								running straight toward the ball.
+							</li>
+						</ul>
+						<strong>Additional risk:</strong>
+						<ul>
+							<li>
+								A collision with a truck is possible in this
+								scenario, adding urgency and reinforcing the
+								consequences of unsafe behavior.
+							</li>
+						</ul>
+						<br />
+						{/* Example GIF / media for Ball scenario */}
+						<div style={{ textAlign: "center" }}>
+							<figure style={{ margin: 0 }}>
+								<Zoom>
+									<img
+										src="../ball-scenario.gif"
+										alt="Ball Scenario Gameplay"
+										style={{
+											maxWidth: "100%",
+											height: "auto",
+										}}
+									/>
+								</Zoom>
+								<figcaption
+									style={{
+										marginTop: "8px",
+										fontSize: "14px",
+										color: "#555",
+									}}
+								>
+									<em>
+										Ball scenario: safely retrieving a ball
+										from the road
+									</em>
+								</figcaption>
+							</figure>
+						</div>
+					</>
+				);
+
+			default:
+				return null;
+		}
+	};
+
+	// -----------------------------------------
+	// MAIN RETURN
+	// -----------------------------------------
 	return (
 		<div>
-			<em style={{ fontSize: "15px" }}>Last updated: 1 Nov, 2025</em>
+			<p>
+				Undergraduate Capstone Project &nbsp;|&nbsp; Unreal Engine 5
+				&nbsp;|&nbsp; Behavioral Training &amp; HCI
+			</p>
+
+			{/* -------- Header -------- */}
+			<em style={{ fontSize: "15px" }}>Last updated: 7 Dec, 2025</em>
 			<div style={{ margin: "0 auto", textAlign: "center" }}>
 				<figure>
-					<Zoom>
-						<img
-							alt="SpartanX Logo"
-							src="../project_Gamification.png"
-							width="200"
-						/>
-					</Zoom>
-					<figcaption style={{ fontSize: "15px" }}>
-						<em>Building... </em>
+					<img
+						className="project-logo-header"
+						src="../project_Gamification.png"
+						alt="Serious Traffic Game Cover"
+					/>
+				</figure>
+			</div>
+
+			<br />
+
+			{/* -------- Overview -------- */}
+			<div className="heading-1">Problem Statement</div>
+			<br />
+			<p>
+				Children often struggle to notice traffic dangers or make safe
+				decisions when crossing the street, which puts them at real
+				risk. Incidents like a 2021 video of a young girl running into
+				the road remind us how quickly these situations can turn
+				dangerous.
+			</p>
+			<p>
+				To address this, I created a 3D serious game that gives kids a
+				safe space to learn and practice proper traffic behavior. The
+				goal is to help them spot hazards, choose safer routes, and
+				respond calmly instead of impulsively—ultimately improving their
+				real-world pedestrian safety.
+			</p>
+			<br />
+
+			{/* Optional embedded media */}
+			<div style={{ textAlign: "center" }}>
+				<video
+					src="../Media1.mp4"
+					controls
+					style={{ maxWidth: "100%", borderRadius: "10px" }}
+				/>
+				<p
+					style={{
+						fontSize: "13px",
+						color: "#666",
+						marginTop: "4px",
+					}}
+				>
+					<em>Gameplay recording from the Serious Traffic Game</em>
+				</p>
+			</div>
+			<br />
+
+			{/* -------- Game Design & Evaluation Logic -------- */}
+			<div className="heading-1">Game Design &amp; Evaluation Logic</div>
+			<br />
+			<p>
+				Using Unreal Engine 5 and Blueprints, I designed an interactive
+				training experience with two core scenarios—Donut and Ball—each
+				focused on hazard perception and safe decision-making in
+				different traffic contexts.
+			</p>
+			<p>
+				The game includes a scoring system that tracks correct and
+				incorrect behaviors in real time. Safe actions increase the
+				score, while risky behaviors reduce it. This immediate feedback
+				helps children understand which choices keep them safe and which
+				ones put them at risk.
+			</p>
+			<br />
+
+			{/* ---- Horizontal Tabs for Scenarios ---- */}
+			<div style={styles.tabsContainer}>
+				{["Donut", "Ball"].map((tab) => (
+					<button
+						key={tab}
+						onClick={() => setActiveTab(tab)}
+						style={{
+							...styles.tabButton,
+							borderBottom:
+								activeTab === tab
+									? "2px solid black"
+									: "2px solid transparent",
+							fontWeight: activeTab === tab ? "bold" : "normal",
+						}}
+					>
+						{tab === "Donut" ? "Donut Scenario" : "Ball Scenario"}
+					</button>
+				))}
+			</div>
+			<br />
+			<div style={styles.contentWrapper}>{renderTabContent()}</div>
+			<br />
+			<br />
+
+			{/* -------- Implementation -------- */}
+			<div className="heading-1">Implementation</div>
+			<br />
+			<p>
+				The full implementation includes ten core systems working
+				together to create a believable, educational traffic
+				environment:
+			</p>
+			<ul>
+				<li>
+					Guidance messages that explain safe actions to the child
+					during training.
+				</li>
+				<li>Coins that visually mark safe walking paths.</li>
+				<li>
+					Car movement logic that simulates realistic traffic while
+					preventing impossible or unfair collisions.
+				</li>
+				<li>
+					A traffic-light system controlling both player and vehicle
+					behavior.
+				</li>
+				<li>NPC pedestrians that make the scene feel more alive.</li>
+				<li>
+					A scoring engine that evaluates safe and unsafe behavior in
+					real time.
+				</li>
+				<li>
+					A character-selection menu that emphasizes safety traits
+					(e.g., clothing color, no headphones).
+				</li>
+				<li>
+					Speed-control logic that encourages slow, careful movement
+					instead of running into the street.
+				</li>
+				<li>
+					Ball mechanics, including rolling, picking up, and dropping
+					the ball.
+				</li>
+				<li>
+					Game menus for navigation, scenario selection, and overall
+					flow.
+				</li>
+			</ul>
+			<br />
+
+			{/* -------- User Study & Results -------- */}
+			<div className="heading-1">User Study &amp; Results</div>
+			<br />
+			<p>
+				I evaluated the game with 18 boys in the 2nd and 3rd grade. Each
+				scenario included three phases: pre-test, training, and
+				post-test. Children first played without guidance, then went
+				through the training experience, and finally repeated the
+				scenario to measure learning gains.
+			</p>
+			{/* --- Side-by-side zoomable photos --- */}
+			<div
+				style={{
+					display: "flex",
+					gap: "16px",
+					flexWrap: "wrap",
+					justifyContent: "center",
+					alignItems: "flex-start",
+					margin: "16px 0",
+				}}
+			>
+				{/* FIGURE A */}
+				<figure style={{ flex: "1 1 260px", margin: 0 }}>
+					<img
+						src="../Student1.jpg"
+						alt="Child playing the traffic game on a laptop"
+						style={{
+							width: "100%",
+							height: "260px", // <-- force equal visual height
+							objectFit: "cover", // <-- ensures uniform size
+							display: "block",
+						}}
+					/>
+
+					<figcaption
+						style={{
+							textAlign: "center",
+							marginTop: "8px",
+							fontSize: "14px",
+							color: "#555",
+						}}
+					>
+						<em>
+							Figure 1. Donut scenario during classroom testing
+						</em>
+					</figcaption>
+				</figure>
+
+				{/* FIGURE B */}
+				<figure style={{ flex: "1 1 260px", margin: 0 }}>
+					<img
+						src="../Student2.jpg"
+						alt="Two children interacting with the traffic game"
+						style={{
+							width: "100%",
+							height: "260px", // <-- same height as the first
+							objectFit: "cover", // <-- crop to fit consistently
+							display: "block",
+						}}
+					/>
+
+					<figcaption
+						style={{
+							textAlign: "center",
+							marginTop: "8px",
+							fontSize: "14px",
+							color: "#555",
+						}}
+					>
+						<em>Figure 2. Ball scenario played collaboratively</em>
 					</figcaption>
 				</figure>
 			</div>
+			
+			<br />
+			<p>The results showed clear improvement in safe behavior:</p>
+			<ul>
+				<li>88% of children scored higher in the Donut scenario.</li>
+				<li>
+					55% of children improved their score in the Ball scenario.
+				</li>
+			</ul>
+
+			{/* --- Single zoomable figure --- */}
+			<div
+				style={{
+					display: "flex",
+					justifyContent: "center",
+					margin: "20px 0",
+				}}
+			>
+				<figure style={{ margin: 0, maxWidth: "600px", width: "100%" }}>
+					<Zoom>
+						<img
+							src="../Diagrams.jpg"
+							alt="Results from the Donut scenario and Ball scenario"
+							style={{
+								width: "100%",
+								height: "auto",
+								display: "block",
+								borderRadius: "6px",
+							}}
+						/>
+					</Zoom>
+
+					<figcaption
+						style={{
+							textAlign: "center",
+							marginTop: "8px",
+							fontSize: "14px",
+							color: "#555",
+						}}
+					>
+						<em>
+							The details of scores obtained by the participants
+						</em>
+					</figcaption>
+				</figure>
+			</div>
+
+			<p>
+				These outcomes suggest that the game effectively teaches
+				children how to behave more safely in common traffic situations
+				and strengthens their hazard-perception skills.
+			</p>
+			<br />
 		</div>
 	);
 };
