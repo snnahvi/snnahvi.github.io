@@ -1,0 +1,148 @@
+.research-map {
+	margin: 36px 0 0;
+	padding: 24px 24px 16px;
+	border: 1px solid var(--color-line);
+	border-radius: var(--radius-md);
+	background: var(--color-surface);
+}
+
+.research-map__caption {
+	margin-bottom: 18px;
+	color: var(--color-muted);
+}
+
+.research-map__diagram {
+	display: block;
+	width: 100%;
+	height: auto;
+	overflow: visible;
+}
+
+.research-map__link {
+	fill: none;
+	stroke: var(--color-border);
+	stroke-width: 2;
+	transition: stroke 0.15s, opacity 0.15s;
+}
+
+.research-map__link.is-on {
+	stroke: var(--color-accent);
+	stroke-width: 3.5;
+}
+
+.research-map__link.is-dim {
+	opacity: 0.25;
+}
+
+.research-map__project,
+.research-map__theme {
+	cursor: pointer;
+	outline: none;
+	transition: opacity 0.15s;
+}
+
+.research-map__project rect {
+	fill: var(--color-surface);
+	stroke: var(--color-border);
+	stroke-width: 1.5;
+}
+
+.research-map__name {
+	fill: var(--color-heading);
+	font-family: var(--font-display);
+	font-size: 17px;
+	font-weight: 700;
+}
+
+.research-map__meta {
+	fill: var(--color-muted);
+	font-family: var(--font-body);
+	font-size: 14px;
+}
+
+.research-map__theme rect {
+	fill: var(--color-accent-soft);
+}
+
+.research-map__theme text {
+	fill: var(--color-accent);
+	font-family: var(--font-display);
+	font-size: 18px;
+	font-weight: 700;
+}
+
+.research-map__project.is-on rect {
+	stroke: var(--color-accent);
+	stroke-width: 2.5;
+}
+
+.research-map__theme.is-on rect {
+	fill: var(--color-accent);
+}
+
+.research-map__theme.is-on text {
+	fill: var(--color-page);
+}
+
+.research-map__project.is-dim,
+.research-map__theme.is-dim {
+	opacity: 0.35;
+}
+
+.research-map__project:focus-visible rect,
+.research-map__theme:focus-visible rect {
+	stroke: var(--color-focus);
+	stroke-width: 3;
+	stroke-dasharray: 5 4;
+}
+
+.research-map__list {
+	display: none;
+}
+
+/* Phones: a list grouped by theme instead of the diagram */
+@media (max-width: 640px) {
+	.research-map {
+		padding: 18px 16px 8px;
+	}
+
+	.research-map__diagram,
+	.research-map__hint {
+		display: none;
+	}
+
+	.research-map__list {
+		display: block;
+	}
+
+	.research-map__group {
+		padding: 10px 0;
+		border-top: 1px solid var(--color-line);
+	}
+
+	.research-map__group:first-child {
+		border-top: 0;
+	}
+
+	.research-map__group h4 {
+		margin: 0 0 4px;
+		color: var(--color-accent);
+		font-size: 1.125rem;
+	}
+
+	.research-map__group ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.research-map__group li + li {
+		margin-top: 6px;
+	}
+
+	.research-map__group span {
+		display: block;
+		color: var(--color-label);
+		font-size: 0.875rem;
+	}
+}

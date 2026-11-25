@@ -1,7 +1,9 @@
-// Projects shown as cards. "themes" links each project to the research map.
+// Projects shown as cards. "short" is the name used on the research map.
+// "themes" links each project to the map; "slug" gives it its own page.
 export const projects = [
 	{
 		title: "Co-designing social support for aging in place",
+		short: "Social support co-design",
 		tag: "Master's thesis",
 		image: "/images/covers/thesis.svg",
 		alt: "",
@@ -11,6 +13,7 @@ export const projects = [
 	},
 	{
 		title: "Sustainable 3D printing materials",
+		short: "Sustainable 3D printing",
 		tag: "Audience Choice Award",
 		image: "/images/covers/materials.svg",
 		alt: "",
@@ -20,6 +23,7 @@ export const projects = [
 	},
 	{
 		title: "Security in digital health",
+		short: "Digital health security",
 		tag: "Paper in preparation",
 		image: "/images/covers/security.svg",
 		alt: "",
@@ -29,6 +33,7 @@ export const projects = [
 	},
 	{
 		title: "Serious game for children's road safety",
+		short: "Road safety serious game",
 		tag: "IEEE IEIT 2023",
 		image: "/images/covers/road-safety.jpg",
 		alt: "Child playing the road safety game on a laptop",
@@ -39,6 +44,7 @@ export const projects = [
 	},
 	{
 		title: "White matter hyperintensity analysis",
+		short: "MRI white matter analysis",
 		tag: "Alzheimer's & Dementia 2024",
 		image: "/images/covers/mri.jpg",
 		alt: "Brain MRI slices with colored regions of interest",

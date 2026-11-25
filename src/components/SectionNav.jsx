@@ -8,12 +8,18 @@ function SectionNav({ children }) {
 	const [active, setActive] = useState(sections[0].id);
 
 	useEffect(() => {
+		// Sections currently inside the reading zone near the top of the screen
+		const visible = new Set();
+
 		const observer = new IntersectionObserver(
 			(entries) => {
-				const visible = entries
-					.filter((entry) => entry.isIntersecting)
-					.sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
-				if (visible.length) setActive(visible[0].target.id);
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) visible.add(entry.target.id);
+					else visible.delete(entry.target.id);
+				});
+				// The first visible section, in page order, is the active one
+				const first = sections.find(({ id }) => visible.has(id));
+				if (first) setActive(first.id);
 			},
 			{ rootMargin: "-80px 0px -60% 0px" },
 		);
