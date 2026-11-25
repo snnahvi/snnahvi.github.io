@@ -1,0 +1,23 @@
+/* Page layout: sidebar on the left, content on the right */
+.site {
+	display: flex;
+	max-width: 1280px;
+	margin: 0 auto;
+}
+
+.site__main {
+	flex: 1 1 auto;
+	min-width: 0;
+	padding: 32px 56px 48px;
+}
+
+/* Phones and small tablets: sidebar on top, content below */
+@media (max-width: 860px) {
+	.site {
+		display: block;
+	}
+
+	.site__main {
+		padding: 24px 20px 40px;
+	}
+}

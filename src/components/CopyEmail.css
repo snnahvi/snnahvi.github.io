@@ -1,0 +1,37 @@
+.copy-email {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 8px;
+	font-size: 0.875rem;
+}
+
+.copy-email a {
+	color: var(--color-sidebar-text);
+	text-decoration: none;
+}
+
+.copy-email a:hover {
+	text-decoration: underline;
+}
+
+.copy-email button {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	min-height: 32px;
+	padding: 4px 12px;
+	border: 1px solid rgba(203, 213, 225, 0.4);
+	border-radius: var(--radius-pill);
+	background: transparent;
+	color: #f1f5f9;
+	font: inherit;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.copy-email button:hover {
+	border-color: var(--color-sidebar-accent);
+	color: var(--color-sidebar-accent);
+}
