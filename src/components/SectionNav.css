@@ -1,0 +1,64 @@
+.section-nav {
+	position: sticky;
+	top: 0;
+	z-index: 20;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 12px;
+	margin: -32px -56px 24px;
+	padding: 14px 56px;
+	background: color-mix(in srgb, var(--color-page) 94%, transparent);
+	backdrop-filter: blur(6px);
+}
+
+.section-nav__list {
+	display: flex;
+	gap: 4px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.section-nav__link {
+	display: inline-flex;
+	align-items: center;
+	min-height: 40px;
+	padding: 0 12px;
+	border-radius: var(--radius-sm);
+	color: var(--color-text);
+	font-family: var(--font-display);
+	font-weight: 700;
+	text-decoration: none;
+	white-space: nowrap;
+}
+
+.section-nav__link:hover {
+	color: var(--color-accent);
+}
+
+.section-nav__link[aria-current="true"] {
+	background: var(--color-accent-soft);
+	color: var(--color-accent);
+}
+
+/* Phones: the menu scrolls sideways and links are easier to tap */
+@media (max-width: 860px) {
+	.section-nav {
+		justify-content: space-between;
+		margin: -24px -20px 24px;
+		padding: 8px 12px 8px 20px;
+	}
+
+	.section-nav__list {
+		overflow-x: auto;
+		scrollbar-width: none;
+		padding-right: 24px;
+		mask-image: linear-gradient(to right, #000 85%, transparent);
+	}
+
+	.section-nav__link {
+		min-height: 44px;
+		padding: 0 10px;
+	}
+}

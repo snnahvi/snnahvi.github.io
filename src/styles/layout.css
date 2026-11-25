@@ -21,3 +21,9 @@
 		padding: 24px 20px 40px;
 	}
 }
+
+
+/* Smooth scrolling when a menu link is clicked (turned off by reduced motion) */
+html {
+	scroll-behavior: smooth;
+}
