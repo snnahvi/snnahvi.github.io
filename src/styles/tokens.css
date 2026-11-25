@@ -1,0 +1,65 @@
+/*
+  Design tokens: every color, font, and size the site uses.
+  To change the look of the site, change values here, not in components.
+*/
+
+:root {
+	/* Fonts */
+	--font-display: "Inter", system-ui, sans-serif;
+	--font-body: "Atkinson Hyperlegible", system-ui, sans-serif;
+
+	/* Shape */
+	--radius-sm: 6px;
+	--radius-md: 10px;
+	--radius-pill: 999px;
+
+	/* Light theme (default) */
+	--color-page: #f8fafc;
+	--color-surface: #ffffff;
+	--color-surface-muted: #e2e8f0;
+	--color-heading: #1e293b;
+	--color-text: #334155;
+	--color-muted: #475569;
+	--color-label: #5b6b82;
+	--color-border: #cbd5e1;
+	--color-line: #dde3ec;
+	--color-accent: #a3124f;
+	--color-accent-soft: #fbe4ee;
+	--color-focus: #a3124f;
+
+	/* Sidebar: the same navy in every theme */
+	--color-sidebar: #1b2a4a;
+	--color-sidebar-text: #cbd5e1;
+	--color-sidebar-pill: #2c3d63;
+	--color-sidebar-accent: #f4a6b8;
+}
+
+[data-theme="dark"] {
+	--color-page: #0e1424;
+	--color-surface: #131c31;
+	--color-surface-muted: #1c2740;
+	--color-heading: #f1f5f9;
+	--color-text: #e2e8f0;
+	--color-muted: #a3b1c6;
+	--color-label: #94a3b8;
+	--color-border: #334155;
+	--color-line: #243049;
+	--color-accent: #f4a6b8;
+	--color-accent-soft: #3a1f2a;
+	--color-focus: #f4a6b8;
+}
+
+[data-theme="reading"] {
+	--color-page: #f6f0e4;
+	--color-surface: #fffbf3;
+	--color-surface-muted: #ebe2d0;
+	--color-heading: #2a2218;
+	--color-text: #3b3226;
+	--color-muted: #5c4f3d;
+	--color-label: #6b5b45;
+	--color-border: #dccfb8;
+	--color-line: #e8ddc7;
+	--color-accent: #92103f;
+	--color-accent-soft: #f3dde0;
+	--color-focus: #92103f;
+}

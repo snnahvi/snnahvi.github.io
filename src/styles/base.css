@@ -1,0 +1,77 @@
+/* Base styles shared by every page */
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+html {
+	color-scheme: light;
+}
+
+html[data-theme="dark"] {
+	color-scheme: dark;
+}
+
+body {
+	margin: 0;
+	background: var(--color-page);
+	color: var(--color-text);
+	font-family: var(--font-body);
+	font-size: 1rem;
+	line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4 {
+	font-family: var(--font-display);
+	color: var(--color-heading);
+	line-height: 1.2;
+}
+
+a {
+	color: var(--color-accent);
+	text-underline-offset: 3px;
+}
+
+:focus-visible {
+	outline: 3px solid var(--color-focus);
+	outline-offset: 3px;
+}
+
+img {
+	max-width: 100%;
+	display: block;
+}
+
+/* Hidden visually but still read by screen readers */
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	white-space: nowrap;
+}
+
+/* Reduced motion: from the device, or from the accessibility menu */
+@media (prefers-reduced-motion: reduce) {
+	html:not([data-motion="standard"]) *,
+	html:not([data-motion="standard"]) *::before,
+	html:not([data-motion="standard"]) *::after {
+		animation: none !important;
+		transition: none !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+html[data-motion="reduce"] *,
+html[data-motion="reduce"] *::before,
+html[data-motion="reduce"] *::after {
+	animation: none !important;
+	transition: none !important;
+	scroll-behavior: auto !important;
+}
