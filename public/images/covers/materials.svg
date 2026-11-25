@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Illustration of a 3D printer nozzle laying down layers of bio-based material">
+<rect width="800" height="500" fill="#EEF2E8"/>
+<g fill="none" stroke-linecap="round" stroke-width="22">
+<path d="M150 410 C260 395 330 425 420 410 S580 395 650 410" stroke="#4F6B3A"/>
+<path d="M165 385 C260 370 330 400 420 385 S570 370 635 385" stroke="#6F8F55"/>
+<path d="M180 360 C270 345 330 375 420 360 S560 345 620 360" stroke="#4F6B3A"/>
+<path d="M195 335 C280 320 335 350 420 335 S545 320 605 335" stroke="#93AE78"/>
+<path d="M210 310 C290 295 340 325 420 310 S470 300 500 305" stroke="#6F8F55"/>
+</g>
+<path d="M500 300 L500 230" stroke="#C9B99A" stroke-width="10" stroke-linecap="round"/>
+<path d="M470 120 h60 v60 l-18 40 h-24 l-18 -40z" fill="#1F2430"/>
+<rect x="440" y="80" width="120" height="44" rx="8" fill="#1B2A4A"/>
+<g fill="#4F6B3A"><path d="M650 170 q40 -50 80 0 q-40 30 -80 0z"/><path d="M640 230 q30 -36 60 0 q-30 22 -60 0z" opacity=".7"/></g>
+<circle cx="160" cy="150" r="10" fill="#C9B99A"/><circle cx="190" cy="180" r="7" fill="#93AE78"/><circle cx="140" cy="200" r="6" fill="#4F6B3A"/>
+</svg>

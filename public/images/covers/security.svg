@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Illustration of connected health devices and services around a patient, with a lock at the center">
+<rect width="800" height="500" fill="#F3F4F7"/>
+<g stroke="#9AA3B5" stroke-width="3">
+<line x1="400" y1="250" x2="200" y2="130"/><line x1="400" y1="250" x2="600" y2="130"/><line x1="400" y1="250" x2="170" y2="360"/><line x1="400" y1="250" x2="630" y2="360"/><line x1="400" y1="250" x2="400" y2="430"/>
+<line x1="200" y1="130" x2="600" y2="130" stroke-dasharray="6 10"/>
+</g>
+<g fill="#fff" stroke="#1F2430" stroke-width="4">
+<rect x="165" y="100" width="70" height="60" rx="10"/><rect x="570" y="95" width="60" height="70" rx="12"/><circle cx="170" cy="360" r="34"/><rect x="595" y="330" width="70" height="60" rx="10"/><rect x="370" y="400" width="60" height="60" rx="30"/>
+</g>
+<path d="M190 130 h20 M200 120 v20" stroke="#A3124F" stroke-width="5" stroke-linecap="round"/>
+<path d="M158 360 h8 l5 -12 l8 24 l5 -12 h8" fill="none" stroke="#A3124F" stroke-width="4" stroke-linejoin="round"/>
+<circle cx="400" cy="250" r="64" fill="#A3124F"/>
+<path d="M378 248 v-16 a22 22 0 0 1 44 0 v16" fill="none" stroke="#fff" stroke-width="8"/>
+<rect x="368" y="246" width="64" height="46" rx="8" fill="#fff"/><circle cx="400" cy="266" r="7" fill="#A3124F"/><rect x="397" y="268" width="6" height="14" fill="#A3124F"/>
+</svg>

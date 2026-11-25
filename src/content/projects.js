@@ -1,0 +1,77 @@
+// Projects shown as cards. "themes" links each project to the research map.
+export const projects = [
+	{
+		title: "Co-designing social support for aging in place",
+		tag: "Master's thesis",
+		image: "/images/covers/thesis.svg",
+		alt: "",
+		where: "CARE Lab, UMBC",
+		when: "2026",
+		themes: ["aging"],
+	},
+	{
+		title: "Sustainable 3D printing materials",
+		tag: "Audience Choice Award",
+		image: "/images/covers/materials.svg",
+		alt: "",
+		where: "Entangled Ecologies Lab, UMBC",
+		when: "2026",
+		themes: ["sustainability"],
+	},
+	{
+		title: "Security in digital health",
+		tag: "Paper in preparation",
+		image: "/images/covers/security.svg",
+		alt: "",
+		where: "CARE Lab, UMBC",
+		when: "2026",
+		themes: ["health", "safety"],
+	},
+	{
+		title: "Serious game for children's road safety",
+		tag: "IEEE IEIT 2023",
+		image: "/images/covers/road-safety.jpg",
+		alt: "Child playing the road safety game on a laptop",
+		where: "Shahid Beheshti University",
+		when: "2022–23",
+		themes: ["safety"],
+		slug: "road-safety-game",
+	},
+	{
+		title: "White matter hyperintensity analysis",
+		tag: "Alzheimer's & Dementia 2024",
+		image: "/images/covers/mri.jpg",
+		alt: "Brain MRI slices with colored regions of interest",
+		where: "MRISC Lab, University of Kentucky",
+		when: "2023–24",
+		themes: ["health", "aging"],
+	},
+	{
+		title: "Redesigning NotebookLM for first-time users",
+		tag: "Design case study",
+		image: "/images/covers/notebooklm.jpg",
+		alt: "Paper sketch of a redesigned NotebookLM landing page",
+		where: "HCC course project",
+		when: "2025",
+		themes: [],
+		slug: "notebooklm-redesign",
+	},
+	{
+		title: "A heuristic critique of Zara's website",
+		tag: "Design case study",
+		image: "/images/covers/zara.jpg",
+		alt: "Annotated Zara product page showing a usability problem",
+		where: "HCC course project",
+		when: "2025",
+		themes: [],
+		slug: "zara-redesign",
+	},
+];
+
+// Themes for the "How my projects connect" map
+export const themes = [
+	{ id: "safety", label: "Safety" },
+	{ id: "health", label: "Health" },
+	{ id: "aging", label: "Aging" },
+	{ id: "sustainability", label: "Sustainability" },
+];

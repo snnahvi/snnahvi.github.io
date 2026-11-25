@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Illustration of three study phases: an interview, a co-design group around a table, and feedback on a prototype">
+<rect width="800" height="500" fill="#FBE4EE"/>
+<line x1="150" y1="400" x2="650" y2="400" stroke="#A3124F" stroke-width="4" stroke-dasharray="2 12" stroke-linecap="round"/>
+<!-- phase 1: interview -->
+<g>
+<circle cx="110" cy="190" r="24" fill="#1F2430"/><path d="M70 300 q40 -80 80 0z" fill="#1F2430"/>
+<circle cx="200" cy="190" r="24" fill="#A3124F"/><path d="M160 300 q40 -80 80 0z" fill="#A3124F"/>
+<rect x="120" y="130" width="70" height="34" rx="17" fill="#fff"/><circle cx="140" cy="147" r="4" fill="#A3124F"/><circle cx="155" cy="147" r="4" fill="#A3124F"/><circle cx="170" cy="147" r="4" fill="#A3124F"/>
+<circle cx="155" cy="400" r="14" fill="#A3124F"/>
+</g>
+<!-- phase 2: co-design group -->
+<g>
+<rect x="315" y="270" width="170" height="16" rx="8" fill="#1F2430"/>
+<rect x="340" y="236" width="40" height="30" rx="4" fill="#fff" stroke="#A3124F" stroke-width="3" transform="rotate(-8 360 251)"/>
+<rect x="392" y="232" width="40" height="30" rx="4" fill="#A3124F"/>
+<rect x="440" y="238" width="36" height="28" rx="4" fill="#fff" stroke="#1F2430" stroke-width="3" transform="rotate(7 458 252)"/>
+<circle cx="335" cy="170" r="20" fill="#A3124F"/><circle cx="400" cy="150" r="20" fill="#1F2430"/><circle cx="465" cy="170" r="20" fill="#A3124F"/>
+<path d="M305 240 q30 -60 60 0z" fill="#A3124F"/><path d="M370 222 q30 -60 60 0z" fill="#1F2430"/><path d="M435 240 q30 -60 60 0z" fill="#A3124F"/>
+<circle cx="400" cy="400" r="14" fill="#A3124F"/>
+</g>
+<!-- phase 3: prototype feedback -->
+<g>
+<rect x="590" y="120" width="96" height="170" rx="16" fill="#1F2430"/>
+<rect x="602" y="140" width="72" height="120" rx="6" fill="#fff"/>
+<rect x="612" y="152" width="52" height="10" rx="5" fill="#A3124F"/><rect x="612" y="172" width="40" height="8" rx="4" fill="#F2C2D6"/><rect x="612" y="188" width="46" height="8" rx="4" fill="#F2C2D6"/>
+<rect x="612" y="220" width="52" height="24" rx="12" fill="#A3124F"/>
+<circle cx="720" cy="200" r="22" fill="#A3124F"/><path d="M680 310 q40 -84 80 0z" fill="#A3124F"/>
+<circle cx="645" cy="400" r="14" fill="#A3124F"/>
+</g>
+</svg>
